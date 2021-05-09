@@ -1,16 +1,16 @@
 PODS:
-  - KatexUtils (0.2.1):
-    - KatexUtils/Core (= 0.2.1)
-  - KatexUtils/Core (0.2.1):
+  - KatexUtils (0.2.2):
+    - KatexUtils/Core (= 0.2.2)
+  - KatexUtils/Core (0.2.2):
     - KatexUtils/Resources
-  - KatexUtils/Resources (0.2.1)
+  - KatexUtils/Resources (0.2.2)
   - Kingfisher (6.2.1)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
   - SwiftyUserDefaults (5.3.0)
 
 DEPENDENCIES:
-  - KatexUtils (= 0.2.1)
+  - KatexUtils (= 0.2.2)
   - Kingfisher (~> 6.2.0)
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 5.0)
@@ -25,12 +25,12 @@ SPEC REPOS:
     - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
-  KatexUtils: 9254e1359c7d238da624b535c5d5c9f3fd86294f
+  KatexUtils: 35d495b03c627d728e0410eb0f6849b11cb1e1bb
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
 
-PODFILE CHECKSUM: f6b53a4c8939759c94a0cf6cc7946d329770b2f0
+PODFILE CHECKSUM: a5617cd1143b4f8980ccbf106a673762667e125d
 
 COCOAPODS: 1.10.1

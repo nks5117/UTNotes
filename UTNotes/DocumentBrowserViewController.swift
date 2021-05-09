@@ -30,12 +30,12 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: UIDocumentBrowserViewControllerDelegate
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        let newDocumentURL: URL? = nil
+        let newDocumentURL: URL? = Bundle.main.url(forResource: "default", withExtension: "md")
         
         // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
         // Make sure the importHandler is always called, even if the user cancels the creation request.
         if newDocumentURL != nil {
-            importHandler(newDocumentURL, .move)
+            importHandler(newDocumentURL, .copy)
         } else {
             importHandler(nil, .none)
         }
@@ -61,7 +61,12 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: Document Presentation
     
     func presentDocument(at documentURL: URL) {
-        print(documentURL)
+        let editorViewController = MarkdownEditorViewController()
+        let document = MarkdownDocument(fileURL: documentURL)
+        editorViewController.document = document
+        editorViewController.documentURL = documentURL
+        editorViewController.modalPresentationStyle = .fullScreen
+        present(editorViewController, animated: true, completion: nil)
     }
 }
 
