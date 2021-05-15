@@ -17,15 +17,24 @@ class OpenSourceViewController: UIViewController, UITextViewDelegate {
         }
         textView.delegate = self
         textView.isEditable = false
+        textView.isScrollEnabled = false
+        textView.sizeToFit()
         return textView
+    }()
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: .zero)
+        scrollView.backgroundColor = .systemBackground
+        return scrollView
     }()
     
     override func viewDidLoad() {
         title = "Open Source Licenses"
-        view.addSubview(textView)
-        textView.snp.makeConstraints { make in
+        view.addSubview(scrollView)
+        scrollView.addSubview(textView)
+        scrollView.contentSize = textView.contentSize
+        scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-        textView.contentOffset = CGPoint(x: 0, y: -textView.adjustedContentInset.top)
     }
 }
