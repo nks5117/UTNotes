@@ -161,16 +161,13 @@
 		2F592BB0262F0319006C464D /* UTNotes */ = {
 			isa = PBXGroup;
 			children = (
-				2FD3C49E264C000600667198 /* Resources */,
 				2F592BB1262F0319006C464D /* AppDelegate.swift */,
-				2F6F7561264E5CF4001FDA97 /* MarkdownIt */,
 				2F592BB3262F0319006C464D /* SceneDelegate.swift */,
 				2F592BB5262F0319006C464D /* DocumentBrowserViewController.swift */,
-				2FB07E402648BC890086BD8D /* SettingsViewController.swift */,
-				2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */,
-				2FCEA3FB264CB44500580F5A /* Editor */,
-				2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */,
+				2F939E3C265003EA003625D7 /* UI */,
+				2F939E3D26500400003625D7 /* Utils */,
 				2F592BBF262F031A006C464D /* Info.plist */,
+				2FD3C49E264C000600667198 /* Resources */,
 			);
 			path = UTNotes;
 			sourceTree = "<group>";
@@ -212,6 +209,32 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
+		2F939E3A2650031E003625D7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2FB07E402648BC890086BD8D /* SettingsViewController.swift */,
+				2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2F939E3C265003EA003625D7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2FCEA3FB264CB44500580F5A /* Editor */,
+				2F939E3A2650031E003625D7 /* Settings */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2F939E3D26500400003625D7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F7561264E5CF4001FDA97 /* MarkdownIt */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2FCEA3FB264CB44500580F5A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +243,7 @@
 				2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */,
 				2F6F755F264D610B001FDA97 /* EditorTextView.swift */,
 				2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */,
+				2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
