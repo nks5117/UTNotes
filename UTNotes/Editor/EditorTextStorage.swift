@@ -10,6 +10,8 @@ import UIKit
 class EditorTextStorage : NSTextStorage {
     var imp = NSTextStorage()
     
+    var lastParseTime : TimeInterval = 0.0
+    
     override var string: String {
         imp.string
     }
@@ -29,9 +31,17 @@ class EditorTextStorage : NSTextStorage {
     }
     
     override func processEditing() {
+        let time = Date.timeIntervalSinceReferenceDate
         
+        if lastParseTime > 0.0 && time - lastParseTime < 1.0 {
+            lastParseTime = time
+            super.processEditing()
+            return
+        }
+                
         setAttributes([
             .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .regular),
+            .foregroundColor: UIColor.label
         ], range: NSRange(location: 0, length: length))
         
         let blockFormulaRegx = try? NSRegularExpression(pattern: #"\${2}(.+?)\${2}"#, options: .dotMatchesLineSeparators)
@@ -54,7 +64,9 @@ class EditorTextStorage : NSTextStorage {
                 addAttributes([.init("InlineFormula"): (string as NSString).substring(with: range)], range: range)
             }
         }
-        
+
+        lastParseTime = Date.timeIntervalSinceReferenceDate
+
         super.processEditing()
     }
 }

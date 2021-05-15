@@ -70,11 +70,9 @@ extension MarkdownPreviewViewController {
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 
                 <link href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" rel="stylesheet">
-                <link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet">
+                <link href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" rel="stylesheet">
                 <style>
                     .markdown-body {
-                        width:100%;
-                        height:600px;
                         overflow: auto;
                     }
                 </style>
@@ -146,6 +144,9 @@ extension MarkdownPreviewViewController {
                 token.delimiterLeft = delimiterLeft;
                 token.delimiterRight = delimiterRight;
                 state.pos += content.length + delimiterLeft.length + delimiterRight.length;
+                if (display && state.src.startsWith('\n', state.pos)) {
+                    state.pos += 1;
+                }
                 return true;
             }
         """#)

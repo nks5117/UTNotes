@@ -83,9 +83,7 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
                 make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             }
         }.store(in: &cancellables)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         document?.open { [self] success in
             if success {
                 textView.text = document?.text
@@ -266,6 +264,7 @@ extension MarkdownEditorViewController {
 extension MarkdownEditorViewController {
     @objc
     func showPreview() {
+        document?.text = textView.text
         if textView.isFirstResponder {
             textView.resignFirstResponder()
         }
