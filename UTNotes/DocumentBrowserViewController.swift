@@ -17,23 +17,16 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        // Update the style of the UIDocumentBrowserViewController
-        // browserUserInterfaceStyle = .dark
-        // view.tintColor = .white
-        
-        // Specify the allowed content types of your application via the Info.plist.
-        
-        // Do any additional setup after loading the view.
+        let settings = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settings))
+        additionalTrailingNavigationBarButtonItems = [settings]
     }
     
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        let newDocumentURL: URL? = Bundle.main.url(forResource: "default", withExtension: "md")
+        let newDocumentURL: URL? = Bundle.main.url(forResource: "untitled", withExtension: "md")
         
-        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
-        // Make sure the importHandler is always called, even if the user cancels the creation request.
         if newDocumentURL != nil {
             importHandler(newDocumentURL, .copy)
         } else {
@@ -43,14 +36,10 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
         guard let sourceURL = documentURLs.first else { return }
-        
-        // Present the Document View Controller for the first document that was picked.
-        // If you support picking multiple items, make sure you handle them all.
         presentDocument(at: sourceURL)
     }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didImportDocumentAt sourceURL: URL, toDestinationURL destinationURL: URL) {
-        // Present the Document View Controller for the new newly created document
         presentDocument(at: destinationURL)
     }
     
@@ -65,8 +54,18 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let document = MarkdownDocument(fileURL: documentURL)
         editorViewController.document = document
         editorViewController.documentURL = documentURL
-        editorViewController.modalPresentationStyle = .fullScreen
-        present(editorViewController, animated: true, completion: nil)
+        let naviController = UINavigationController(rootViewController: editorViewController)
+        naviController.modalPresentationStyle = .fullScreen
+        present(naviController, animated: true)
     }
 }
 
+extension DocumentBrowserViewController {
+    @objc
+    func settings() {
+        let naviController = UINavigationController(rootViewController: SettingsViewController(style: .grouped))
+        naviController.modalPresentationStyle = .popover
+        naviController.popoverPresentationController?.barButtonItem = additionalTrailingNavigationBarButtonItems.first
+        present(naviController, animated: true)
+    }
+}

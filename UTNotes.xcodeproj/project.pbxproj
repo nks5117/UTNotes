@@ -15,9 +15,23 @@
 		2F592BBE262F031A006C464D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F592BBC262F031A006C464D /* LaunchScreen.storyboard */; };
 		2F592BC9262F031A006C464D /* UTNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BC8262F031A006C464D /* UTNotesTests.swift */; };
 		2F592BD4262F031A006C464D /* UTNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BD3262F031A006C464D /* UTNotesUITests.swift */; };
+		2F6F755E264D3A6B001FDA97 /* FormulaPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F755D264D3A6B001FDA97 /* FormulaPreviewController.swift */; };
+		2F6F7560264D610B001FDA97 /* EditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F755F264D610B001FDA97 /* EditorTextView.swift */; };
+		2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */; };
+		2F6F7565264E5E15001FDA97 /* markdown-it in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F7564264E5E15001FDA97 /* markdown-it */; };
+		2F6F7567264E9836001FDA97 /* ParserInline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F7566264E9836001FDA97 /* ParserInline.swift */; };
+		2F6F7569264E985F001FDA97 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F7568264E985F001FDA97 /* Ruler.swift */; };
+		2F6F756B264EA2FD001FDA97 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F756A264EA2FD001FDA97 /* Renderer.swift */; };
+		2F85CA4C264F788000B3EB87 /* MarkdownPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F85CA4B264F788000B3EB87 /* MarkdownPreviewViewController.swift */; };
+		2F85CA4E264F816C00B3EB87 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2F85CA4D264F816C00B3EB87 /* template.html */; };
 		2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */; };
 		2FB07E3D2646C3F40086BD8D /* MarkdownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */; };
-		2FB07E3F2646C9160086BD8D /* default.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E3E2646C8C00086BD8D /* default.md */; };
+		2FB07E3F2646C9160086BD8D /* untitled.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E3E2646C8C00086BD8D /* untitled.md */; };
+		2FB07E412648BC890086BD8D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E402648BC890086BD8D /* SettingsViewController.swift */; };
+		2FB07E432648F5AE0086BD8D /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */; };
+		2FB07E452648F6250086BD8D /* opensource in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E442648F6250086BD8D /* opensource */; };
+		2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */; };
+		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
 		34450F57E44E5D0ACC56DD2A /* Pods_UTNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55F006FAAF71166C2F5C5DD /* Pods_UTNotes.framework */; };
 		CD0E3BA01A5996E0F459BB81 /* Pods_UTNotesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD52AA99DF25713DAC8280A /* Pods_UTNotesTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,9 +69,23 @@
 		2F592BCF262F031A006C464D /* UTNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UTNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F592BD3262F031A006C464D /* UTNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTNotesUITests.swift; sourceTree = "<group>"; };
 		2F592BD5262F031A006C464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F6F755D264D3A6B001FDA97 /* FormulaPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaPreviewController.swift; sourceTree = "<group>"; };
+		2F6F755F264D610B001FDA97 /* EditorTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextView.swift; sourceTree = "<group>"; };
+		2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownIt.swift; sourceTree = "<group>"; };
+		2F6F7564264E5E15001FDA97 /* markdown-it */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "markdown-it"; sourceTree = "<group>"; };
+		2F6F7566264E9836001FDA97 /* ParserInline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserInline.swift; sourceTree = "<group>"; };
+		2F6F7568264E985F001FDA97 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
+		2F6F756A264EA2FD001FDA97 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		2F85CA4B264F788000B3EB87 /* MarkdownPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownPreviewViewController.swift; sourceTree = "<group>"; };
+		2F85CA4D264F816C00B3EB87 /* template.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorViewController.swift; sourceTree = "<group>"; };
-		2FB07E3E2646C8C00086BD8D /* default.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = default.md; sourceTree = "<group>"; };
+		2FB07E3E2646C8C00086BD8D /* untitled.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = untitled.md; sourceTree = "<group>"; };
+		2FB07E402648BC890086BD8D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		2FB07E442648F6250086BD8D /* opensource */ = {isa = PBXFileReference; lastKnownFileType = text; path = opensource; sourceTree = "<group>"; };
+		2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextStorage.swift; sourceTree = "<group>"; };
+		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
 		3037EBBEE9CBE7B95FAAD217 /* Pods-UTNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTNotesTests.release.xcconfig"; path = "Target Support Files/Pods-UTNotesTests/Pods-UTNotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		4EB27474A0C6031845E0E264 /* Pods_UTNotes_UTNotesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTNotes_UTNotesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F616416C9FDB08E7F9F27E1 /* Pods-UTNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTNotes.release.xcconfig"; path = "Target Support Files/Pods-UTNotes/Pods-UTNotes.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,14 +161,15 @@
 		2F592BB0262F0319006C464D /* UTNotes */ = {
 			isa = PBXGroup;
 			children = (
+				2FD3C49E264C000600667198 /* Resources */,
 				2F592BB1262F0319006C464D /* AppDelegate.swift */,
+				2F6F7561264E5CF4001FDA97 /* MarkdownIt */,
 				2F592BB3262F0319006C464D /* SceneDelegate.swift */,
 				2F592BB5262F0319006C464D /* DocumentBrowserViewController.swift */,
-				2FB07E3E2646C8C00086BD8D /* default.md */,
-				2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */,
+				2FB07E402648BC890086BD8D /* SettingsViewController.swift */,
+				2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */,
+				2FCEA3FB264CB44500580F5A /* Editor */,
 				2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */,
-				2F592BBA262F031A006C464D /* Assets.xcassets */,
-				2F592BBC262F031A006C464D /* LaunchScreen.storyboard */,
 				2F592BBF262F031A006C464D /* Info.plist */,
 			);
 			path = UTNotes;
@@ -162,6 +191,59 @@
 				2F592BD5262F031A006C464D /* Info.plist */,
 			);
 			path = UTNotesUITests;
+			sourceTree = "<group>";
+		};
+		2F6F7561264E5CF4001FDA97 /* MarkdownIt */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */,
+				2F6F7568264E985F001FDA97 /* Ruler.swift */,
+				2F6F756A264EA2FD001FDA97 /* Renderer.swift */,
+				2F6F7566264E9836001FDA97 /* ParserInline.swift */,
+			);
+			path = MarkdownIt;
+			sourceTree = "<group>";
+		};
+		2F85CA4A264F786D00B3EB87 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				2F85CA4B264F788000B3EB87 /* MarkdownPreviewViewController.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		2FCEA3FB264CB44500580F5A /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				2F85CA4A264F786D00B3EB87 /* Preview */,
+				2FCEA3FE264CDDA700580F5A /* Formula */,
+				2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */,
+				2F6F755F264D610B001FDA97 /* EditorTextView.swift */,
+				2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		2FCEA3FE264CDDA700580F5A /* Formula */ = {
+			isa = PBXGroup;
+			children = (
+				2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */,
+				2F6F755D264D3A6B001FDA97 /* FormulaPreviewController.swift */,
+			);
+			path = Formula;
+			sourceTree = "<group>";
+		};
+		2FD3C49E264C000600667198 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F7564264E5E15001FDA97 /* markdown-it */,
+				2FB07E442648F6250086BD8D /* opensource */,
+				2FB07E3E2646C8C00086BD8D /* untitled.md */,
+				2F592BBA262F031A006C464D /* Assets.xcassets */,
+				2F592BBC262F031A006C464D /* LaunchScreen.storyboard */,
+				2F85CA4D264F816C00B3EB87 /* template.html */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		58F51F78A6BB5509ABB8D462 /* Frameworks */ = {
@@ -186,6 +268,7 @@
 				2F592BAB262F0319006C464D /* Frameworks */,
 				2F592BAC262F0319006C464D /* Resources */,
 				C2DA4FE30EB505A8FD330B82 /* [CP] Embed Pods Frameworks */,
+				FE0653F70F6416E231545713 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,6 +307,7 @@
 				2F592BCC262F031A006C464D /* Frameworks */,
 				2F592BCD262F031A006C464D /* Resources */,
 				38D7AEF6330EB393A9509E2D /* [CP] Embed Pods Frameworks */,
+				759181F39677FD700B81B91C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,9 +366,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6F7565264E5E15001FDA97 /* markdown-it in Resources */,
 				2F592BBE262F031A006C464D /* LaunchScreen.storyboard in Resources */,
+				2FB07E452648F6250086BD8D /* opensource in Resources */,
 				2F592BBB262F031A006C464D /* Assets.xcassets in Resources */,
-				2FB07E3F2646C9160086BD8D /* default.md in Resources */,
+				2F85CA4E264F816C00B3EB87 /* template.html in Resources */,
+				2FB07E3F2646C9160086BD8D /* untitled.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +453,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		759181F39677FD700B81B91C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTNotes-UTNotesUITests/Pods-UTNotes-UTNotesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTNotes-UTNotesUITests/Pods-UTNotes-UTNotesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UTNotes-UTNotesUITests/Pods-UTNotes-UTNotesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7AB23BE2E00E8436C3482D85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +509,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UTNotes/Pods-UTNotes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FE0653F70F6416E231545713 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTNotes/Pods-UTNotes-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTNotes/Pods-UTNotes-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UTNotes/Pods-UTNotes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -412,11 +533,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6F7569264E985F001FDA97 /* Ruler.swift in Sources */,
+				2FB07E432648F5AE0086BD8D /* OpenSourceViewController.swift in Sources */,
+				2F85CA4C264F788000B3EB87 /* MarkdownPreviewViewController.swift in Sources */,
 				2F592BB6262F0319006C464D /* DocumentBrowserViewController.swift in Sources */,
 				2F592BB2262F0319006C464D /* AppDelegate.swift in Sources */,
+				2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */,
+				2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */,
+				2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */,
+				2F6F755E264D3A6B001FDA97 /* FormulaPreviewController.swift in Sources */,
 				2FB07E3D2646C3F40086BD8D /* MarkdownEditorViewController.swift in Sources */,
 				2F592BB4262F0319006C464D /* SceneDelegate.swift in Sources */,
+				2F6F7560264D610B001FDA97 /* EditorTextView.swift in Sources */,
 				2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */,
+				2F6F7567264E9836001FDA97 /* ParserInline.swift in Sources */,
+				2F6F756B264EA2FD001FDA97 /* Renderer.swift in Sources */,
+				2FB07E412648BC890086BD8D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +717,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
@@ -594,6 +727,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikesu.college.UTNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -605,6 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
@@ -614,6 +749,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikesu.college.UTNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
