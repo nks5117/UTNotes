@@ -31,10 +31,30 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
     
     lazy var toolbar : UIToolbar = {
         let toolbar = UIToolbar(frame: .zero)
-        toolbar.items = [
-            UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview)),
-        ]
+        toolbar.items = defaultToolBarItems
         return toolbar
+    }()
+    
+    lazy var defaultToolBarItems: [UIBarButtonItem] = [
+        UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview)),
+    ]
+    
+    lazy var editingToolBarItems: [UIBarButtonItem] = {
+        let italicItem = UIBarButtonItem(image: UIImage(systemName: "italic"), style: .plain, target: self, action: nil)
+        let strikethroughItem = UIBarButtonItem(image: UIImage(systemName: "strikethrough"), style: .plain, target: self, action: nil)
+        italicItem.isEnabled = false
+        strikethroughItem.isEnabled = false
+        return [
+            UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview)),
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            UIBarButtonItem(image: UIImage(systemName: "bold"), style: .plain, target: self, action: #selector(bold)),
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            italicItem,
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            strikethroughItem,
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            UIBarButtonItem(image: UIImage(systemName: "sum"), style: .plain, target: self, action: #selector(editFormula)),
+        ]
     }()
     
     var cancellables : [AnyCancellable] = []
@@ -44,7 +64,6 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeFile))
         
         view.addSubview(toolbar)
-        //view.addSubview(navigationBar)
         view.addSubview(textView)
         
         toolbar.snp.makeConstraints { make in
@@ -115,6 +134,46 @@ extension MarkdownEditorViewController {
 }
 
 
+extension MarkdownEditorViewController {
+    @objc
+    func showPreview() {
+        document?.text = textView.text
+        if textView.isFirstResponder {
+            textView.resignFirstResponder()
+        }
+        var title = documentURL?.lastPathComponent ?? "Untitled"
+        if title.hasSuffix(".md") {
+            title.removeLast(3)
+        }
+        let previewViewController = MarkdownPreviewViewController(textView.text, documentTitle: title)
+        navigationController?.pushViewController(previewViewController, animated: true)
+    }
+    
+    @objc
+    func bold() {
+        guard
+            let selectedTextRange = textView.selectedTextRange,
+            let text = textView.text(in: selectedTextRange)
+        else {
+            return
+        }
+        
+        let boldRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*{2}(?=[^*])(.+?)(?<=[^*])\*{2}(?!\*)"#, options: .dotMatchesLineSeparators)
+        let range = NSRange(location: 0, length: (text as NSString).length)
+        
+        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+            let newText = (text as NSString).substring(with: NSRange(location: range.location + 2, length: range.length - 4))
+            textView.replace(selectedTextRange, withText: newText)
+        } else {
+            textView.replace(selectedTextRange, withText: "**\(text)**")
+            if text.count == 0 {
+                textView.selectedRange.location -= 2
+            }
+        }
+    }
+}
+
+
 // Formula Edit
 extension MarkdownEditorViewController {
     @objc
@@ -174,18 +233,12 @@ extension MarkdownEditorViewController {
 // UITextViewDelegate
 extension MarkdownEditorViewController {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        toolbar.items = [
-            UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: nil, action: #selector(showPreview)),
-            UIBarButtonItem(systemItem: .flexibleSpace),
-            UIBarButtonItem(image: UIImage(systemName: "sum"), style: .plain, target: self, action: #selector(editFormula)),
-        ]
+        toolbar.items = editingToolBarItems
         updateLineIndicator()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        toolbar.items = [
-            UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: nil, action: #selector(showPreview)),
-        ]
+        toolbar.items = defaultToolBarItems
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -260,15 +313,3 @@ extension MarkdownEditorViewController {
     }
 }
 
-// preview
-extension MarkdownEditorViewController {
-    @objc
-    func showPreview() {
-        document?.text = textView.text
-        if textView.isFirstResponder {
-            textView.resignFirstResponder()
-        }
-        let previewViewController = MarkdownPreviewViewController(textView.text)
-        navigationController?.pushViewController(previewViewController, animated: true)
-    }
-}
