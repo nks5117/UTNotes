@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 
-    <link href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" rel="stylesheet">
-    <style>
-        .markdown-body {
-            overflow: auto;
-        }
-    </style>
-    <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" rel="stylesheet">
+  <style>
+    @media screen and (min-width: 914px) {
+      .markdown-body {
+        padding: 2em calc(50% - 457px + 2em);
+      }
+    }
+
+    @media screen and (max-width: 914px) {
+      .markdown-body {
+        padding: 2em;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .markdown-body {
+        font-size: 14px !important;
+        padding: 1em;
+      }
+    }
+  </style>
+  <title>$TITLE$</title>
 </head>
-<body>
 
-    
+<body class="markdown-body">
+
+  $MARKDOWN$
 
 </body>
+
 </html>

@@ -41,8 +41,11 @@ class MarkdownPreviewViewController: UIViewController {
         }
     }
     
-    init(_ text: String) {
+    private var documentTitle: String
+    
+    init(_ text: String, documentTitle: String? = nil) {
         self.text = text
+        self.documentTitle = documentTitle ?? "Title"
         super.init(nibName: nil, bundle: nil)
         updateHtml()
     }
@@ -56,35 +59,40 @@ class MarkdownPreviewViewController: UIViewController {
         webView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
+    }
+}
+
+extension MarkdownPreviewViewController {
+    @objc
+    func share() {
+        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(documentTitle).html")
+        do {
+            try html.data(using: .utf8)?.write(to: fileURL)
+        } catch {
+            return
+        }
+        
+        let activityVC = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        activityVC.modalPresentationStyle = .popover
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(activityVC, animated: true)
     }
 }
 
 extension MarkdownPreviewViewController {
     func updateHtml() {
         let result = md.render(src: text)
-        html = #"""
-            <!DOCTYPE html>
-            <html lang="zh-CN">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-
-                <link href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" rel="stylesheet">
-                <link href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" rel="stylesheet">
-                <style>
-                    .markdown-body {
-                        overflow: auto;
-                    }
-                </style>
-                <title>Title</title>
-            </head>
-            <body class="markdown-body">
-
-                $MARKDOWN$
-
-            </body>
-            </html>
-        """#.replacingOccurrences(of: "$MARKDOWN$", with: result)
+        guard
+            let url = Bundle.main.url(forResource: "template", withExtension: "html"),
+            let baseHtml = try? String(contentsOf: url, encoding: .utf8)
+        else {
+            return
+        }
+        html = baseHtml
+                .replacingOccurrences(of: "$TITLE$", with: documentTitle)
+                .replacingOccurrences(of: "$MARKDOWN$", with: result)
     }
 }
 
