@@ -269,6 +269,7 @@
 				2F592BAC262F0319006C464D /* Resources */,
 				C2DA4FE30EB505A8FD330B82 /* [CP] Embed Pods Frameworks */,
 				FE0653F70F6416E231545713 /* [CP] Copy Pods Resources */,
+				2F939E39264FB02F003625D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,6 +393,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F939E39264FB02F003625D7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ $CONFIGURATION == Release ]; then\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\nfi\n";
+		};
 		38D7AEF6330EB393A9509E2D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
