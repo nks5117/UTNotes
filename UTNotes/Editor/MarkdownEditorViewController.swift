@@ -105,7 +105,7 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
         
         document?.open { [self] success in
             if success {
-                textView.text = document?.text
+                textView.text = document?.text.replacingOccurrences(of: "\r\n", with: "\n")
             }
         }
     }
