@@ -1,4 +1,4 @@
-platform :ios, '14.5'
+platform :ios, '14.0'
 supports_swift_versions '>= 5.0'
 
 target 'UTNotes' do
