@@ -24,6 +24,7 @@
 		2F6F756B264EA2FD001FDA97 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F756A264EA2FD001FDA97 /* Renderer.swift */; };
 		2F85CA4C264F788000B3EB87 /* MarkdownPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F85CA4B264F788000B3EB87 /* MarkdownPreviewViewController.swift */; };
 		2F85CA4E264F816C00B3EB87 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2F85CA4D264F816C00B3EB87 /* template.html */; };
+		2F939E3F2650D8C1003625D7 /* ParserBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E3E2650D8C1003625D7 /* ParserBlock.swift */; };
 		2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */; };
 		2FB07E3D2646C3F40086BD8D /* MarkdownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */; };
 		2FB07E3F2646C9160086BD8D /* untitled.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E3E2646C8C00086BD8D /* untitled.md */; };
@@ -78,6 +79,7 @@
 		2F6F756A264EA2FD001FDA97 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		2F85CA4B264F788000B3EB87 /* MarkdownPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownPreviewViewController.swift; sourceTree = "<group>"; };
 		2F85CA4D264F816C00B3EB87 /* template.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		2F939E3E2650D8C1003625D7 /* ParserBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserBlock.swift; sourceTree = "<group>"; };
 		2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorViewController.swift; sourceTree = "<group>"; };
 		2FB07E3E2646C8C00086BD8D /* untitled.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = untitled.md; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				2F6F7568264E985F001FDA97 /* Ruler.swift */,
 				2F6F756A264EA2FD001FDA97 /* Renderer.swift */,
 				2F6F7566264E9836001FDA97 /* ParserInline.swift */,
+				2F939E3E2650D8C1003625D7 /* ParserBlock.swift */,
 			);
 			path = MarkdownIt;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				2F592BB4262F0319006C464D /* SceneDelegate.swift in Sources */,
 				2F6F7560264D610B001FDA97 /* EditorTextView.swift in Sources */,
 				2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */,
+				2F939E3F2650D8C1003625D7 /* ParserBlock.swift in Sources */,
 				2F6F7567264E9836001FDA97 /* ParserInline.swift in Sources */,
 				2F6F756B264EA2FD001FDA97 /* Renderer.swift in Sources */,
 				2FB07E412648BC890086BD8D /* SettingsViewController.swift in Sources */,

@@ -33,6 +33,12 @@ class MarkdownIt {
         }
     }
     
+    var block: ParserBlock {
+        get {
+            ParserBlock(jsValue.forProperty("block"))
+        }
+    }
+    
     var renderer: Renderer {
         get {
             Renderer(jsValue.forProperty("renderer"))
@@ -81,8 +87,23 @@ class MarkdownIt {
         }
     }
     
-    func use(plugin: String, params: Any ... ) -> MarkdownIt {
-        jsValue = jsValue.invokeMethod("use", withArguments: [plugin, params])
+    func disable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
+        jsValue.invokeMethod("disable", withArguments: [list, ignoreInvalid])
+        return self
+    }
+    
+    func disable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
+        jsValue.invokeMethod("disable", withArguments: [name, ignoreInvalid])
+        return self
+    }
+    
+    func enable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
+        jsValue.invokeMethod("enable", withArguments: [list, ignoreInvalid])
+        return self
+    }
+    
+    func enable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
+        jsValue.invokeMethod("enable", withArguments: [name, ignoreInvalid])
         return self
     }
     
@@ -91,6 +112,28 @@ class MarkdownIt {
             return result
         }
         return ""
+    }
+    
+    func renderInline(src: String, env: [AnyHashable : Any] = [:]) -> String {
+        if let result = jsValue.invokeMethod("render", withArguments: [src, env]).toString() {
+            return result
+        }
+        return ""
+    }
+    
+    func set(options: [OptionKey : Any]) -> MarkdownIt {
+        jsValue.invokeMethod("set", withArguments: [options])
+        return self
+    }
+    
+    func use(plugin: String) -> MarkdownIt {
+        jsValue.invokeMethod("use", withArguments: [plugin])
+        return self
+    }
+    
+    func use(plugin: String, params: Any ... ) -> MarkdownIt {
+        jsValue.invokeMethod("use", withArguments: [plugin, params])
+        return self
     }
 }
 

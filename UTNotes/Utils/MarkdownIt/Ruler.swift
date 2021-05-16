@@ -16,11 +16,11 @@ class Ruler {
     }
     
     func after(afterName: String, ruleName: String, fn: JSValue!, options: [AnyHashable: Any] = [:]) {
-        jsValue.invokeMethod("after", withArguments: [afterName, ruleName, fn, options])
+        jsValue.invokeMethod("after", withArguments: [afterName, ruleName, fn!, options])
     }
     
     func before(beforeName: String, ruleName: String, fn: JSValue!, options: [AnyHashable: Any] = [:]) {
-        jsValue.invokeMethod("before", withArguments: [beforeName, ruleName, fn, options])
+        jsValue.invokeMethod("before", withArguments: [beforeName, ruleName, fn!, options])
     }
     
     func at(name: String, fn: Any, options: [AnyHashable: Any] = [:]) {
