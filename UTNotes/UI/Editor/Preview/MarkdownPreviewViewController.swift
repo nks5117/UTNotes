@@ -24,8 +24,8 @@ class MarkdownPreviewViewController: UIViewController {
     private lazy var md: MarkdownIt = {
         let md = MarkdownIt(jsContext: KatexRenderer.jsContext,
                             options: [
-                                .html: true,
-                                .breaks: true,
+                                .html: SettingsManager.shared.enableHtmlTags,
+                                .breaks: SettingsManager.shared.enableBreaksInParagraph,
                             ])
         let jsContext = md.jsContext
         let mathParserRule = mathParserRule(for: jsContext)
