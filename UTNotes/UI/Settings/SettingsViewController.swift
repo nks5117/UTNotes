@@ -44,7 +44,10 @@ class SettingsViewController: UITableViewController {
                 },
                 SwitchSettingItem("Autoconvert URL-like text to links", defaultValue: SettingsManager.shared.linkify) { isOn in
                     SettingsManager.shared.linkify = isOn
-                }
+                },
+                SwitchSettingItem("Footnote", defaultValue: SettingsManager.shared.footnote) { isOn in
+                    SettingsManager.shared.footnote = isOn
+                },
             ]),
             ("General", [
                 BaseSettingItem("Open Source Licenses") {

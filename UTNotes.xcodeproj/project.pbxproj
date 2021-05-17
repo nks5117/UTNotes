@@ -28,6 +28,9 @@
 		2F939E412650F7C6003625D7 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E402650F7C6003625D7 /* SettingItem.swift */; };
 		2F939E43265160ED003625D7 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E42265160ED003625D7 /* SettingsManager.swift */; };
 		2F939E452652550E003625D7 /* FormulaDelimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E442652550E003625D7 /* FormulaDelimiter.swift */; };
+		2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */ = {isa = PBXBuildFile; fileRef = 2F939E462652A6C1003625D7 /* markdown-it-footnote.js */; };
+		2F939E4A2652A6FB003625D7 /* Footnote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E492652A6FB003625D7 /* Footnote.swift */; };
+		2F939E4C2652A92E003625D7 /* MarkdownItPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E4B2652A92E003625D7 /* MarkdownItPlugin.swift */; };
 		2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */; };
 		2FB07E3D2646C3F40086BD8D /* MarkdownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */; };
 		2FB07E3F2646C9160086BD8D /* untitled.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E3E2646C8C00086BD8D /* untitled.md */; };
@@ -86,6 +89,9 @@
 		2F939E402650F7C6003625D7 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		2F939E42265160ED003625D7 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		2F939E442652550E003625D7 /* FormulaDelimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaDelimiter.swift; sourceTree = "<group>"; };
+		2F939E462652A6C1003625D7 /* markdown-it-footnote.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "markdown-it-footnote.js"; sourceTree = "<group>"; };
+		2F939E492652A6FB003625D7 /* Footnote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footnote.swift; sourceTree = "<group>"; };
+		2F939E4B2652A92E003625D7 /* MarkdownItPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownItPlugin.swift; sourceTree = "<group>"; };
 		2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorViewController.swift; sourceTree = "<group>"; };
 		2FB07E3E2646C8C00086BD8D /* untitled.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = untitled.md; sourceTree = "<group>"; };
@@ -200,7 +206,9 @@
 		2F6F7561264E5CF4001FDA97 /* MarkdownIt */ = {
 			isa = PBXGroup;
 			children = (
+				2F939E482652A6E7003625D7 /* Plugins */,
 				2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */,
+				2F939E4B2652A92E003625D7 /* MarkdownItPlugin.swift */,
 				2F6F7568264E985F001FDA97 /* Ruler.swift */,
 				2F6F756A264EA2FD001FDA97 /* Renderer.swift */,
 				2F6F7566264E9836001FDA97 /* ParserInline.swift */,
@@ -248,6 +256,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		2F939E482652A6E7003625D7 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				2F939E492652A6FB003625D7 /* Footnote.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
 		2FCEA3FB264CB44500580F5A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 		2FD3C49E264C000600667198 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F939E462652A6C1003625D7 /* markdown-it-footnote.js */,
 				2F6F7564264E5E15001FDA97 /* markdown-it */,
 				2FB07E442648F6250086BD8D /* opensource */,
 				2FB07E3E2646C8C00086BD8D /* untitled.md */,
@@ -408,6 +425,7 @@
 				2FB07E452648F6250086BD8D /* opensource in Resources */,
 				2F592BBB262F031A006C464D /* Assets.xcassets in Resources */,
 				2F85CA4E264F816C00B3EB87 /* template.html in Resources */,
+				2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */,
 				2FB07E3F2646C9160086BD8D /* untitled.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +613,8 @@
 				2F939E452652550E003625D7 /* FormulaDelimiter.swift in Sources */,
 				2F939E412650F7C6003625D7 /* SettingItem.swift in Sources */,
 				2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */,
+				2F939E4A2652A6FB003625D7 /* Footnote.swift in Sources */,
+				2F939E4C2652A92E003625D7 /* MarkdownItPlugin.swift in Sources */,
 				2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */,
 				2F939E43265160ED003625D7 /* SettingsManager.swift in Sources */,
 				2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */,

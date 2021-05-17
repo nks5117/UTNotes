@@ -87,22 +87,22 @@ class MarkdownIt {
         }
     }
     
-    func disable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
+    @discardableResult func disable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
         jsValue.invokeMethod("disable", withArguments: [list, ignoreInvalid])
         return self
     }
     
-    func disable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
+    @discardableResult func disable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
         jsValue.invokeMethod("disable", withArguments: [name, ignoreInvalid])
         return self
     }
     
-    func enable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
+    @discardableResult func enable(list: [String], ignoreInvalid: Bool) -> MarkdownIt {
         jsValue.invokeMethod("enable", withArguments: [list, ignoreInvalid])
         return self
     }
     
-    func enable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
+    @discardableResult func enable(name: String, ignoreInvalid: Bool) -> MarkdownIt {
         jsValue.invokeMethod("enable", withArguments: [name, ignoreInvalid])
         return self
     }
@@ -121,18 +121,28 @@ class MarkdownIt {
         return ""
     }
     
-    func set(options: [OptionKey : Any]) -> MarkdownIt {
+    @discardableResult func set(options: [OptionKey : Any]) -> MarkdownIt {
         jsValue.invokeMethod("set", withArguments: [options])
         return self
     }
     
-    func use(plugin: String) -> MarkdownIt {
+    @discardableResult func use(plugin: JSValue) -> MarkdownIt {
         jsValue.invokeMethod("use", withArguments: [plugin])
         return self
     }
     
-    func use(plugin: String, params: Any ... ) -> MarkdownIt {
+    @discardableResult func use(plugin: JSValue, params: Any ... ) -> MarkdownIt {
         jsValue.invokeMethod("use", withArguments: [plugin, params])
+        return self
+    }
+    
+    @discardableResult func use(plugin: MarkdownItPlugin) -> MarkdownIt {
+        jsValue.invokeMethod("use", withArguments: [plugin.jsValue])
+        return self
+    }
+    
+    @discardableResult func use(plugin: MarkdownItPlugin, params: Any ... ) -> MarkdownIt {
+        jsValue.invokeMethod("use", withArguments: [plugin.jsValue, params])
         return self
     }
 }

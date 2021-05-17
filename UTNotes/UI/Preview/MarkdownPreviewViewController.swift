@@ -22,13 +22,17 @@ class MarkdownPreviewViewController: UIViewController {
     private lazy var webView : WKWebView = WKWebView()
     
     private lazy var md: MarkdownIt = {
+        let jsContext = KatexRenderer.jsContext
         let md = MarkdownIt(jsContext: KatexRenderer.jsContext,
                             options: [
                                 .html: SettingsManager.shared.enableHtmlTags,
                                 .breaks: SettingsManager.shared.enableBreaksInParagraph,
                                 .linkify: SettingsManager.shared.linkify
                             ])
-        let jsContext = md.jsContext
+        if SettingsManager.shared.footnote {
+            let footnotePlugin = Footnote(jsContext: jsContext)
+            md.use(plugin: footnotePlugin)
+        }
         let mathParserRule = mathParserRule(for: jsContext)
         let mathRendererRule = mathRendererRule(for: jsContext)
         md.inline.ruler.before(beforeName: "escape", ruleName: "math", fn: mathParserRule)

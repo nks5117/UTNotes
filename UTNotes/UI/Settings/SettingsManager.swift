@@ -20,6 +20,9 @@ struct SettingsManager {
     @Config("linkify")
     var linkify: Bool
     
+    @Config("footnote")
+    var footnote: Bool
+    
     @Config("show_formula_preview", default: true)
     var showFormulaPreview:Bool
     
