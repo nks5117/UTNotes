@@ -171,7 +171,6 @@
 			children = (
 				2F592BB1262F0319006C464D /* AppDelegate.swift */,
 				2F592BB3262F0319006C464D /* SceneDelegate.swift */,
-				2F592BB5262F0319006C464D /* DocumentBrowserViewController.swift */,
 				2F939E3C265003EA003625D7 /* UI */,
 				2F939E3D26500400003625D7 /* Utils */,
 				2F592BBF262F031A006C464D /* Info.plist */,
@@ -233,6 +232,8 @@
 		2F939E3C265003EA003625D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2F592BB5262F0319006C464D /* DocumentBrowserViewController.swift */,
+				2F85CA4A264F786D00B3EB87 /* Preview */,
 				2FCEA3FB264CB44500580F5A /* Editor */,
 				2F939E3A2650031E003625D7 /* Settings */,
 			);
@@ -250,7 +251,6 @@
 		2FCEA3FB264CB44500580F5A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				2F85CA4A264F786D00B3EB87 /* Preview */,
 				2FCEA3FE264CDDA700580F5A /* Formula */,
 				2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */,
 				2F6F755F264D610B001FDA97 /* EditorTextView.swift */,
