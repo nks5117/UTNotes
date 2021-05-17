@@ -26,6 +26,7 @@ class MarkdownPreviewViewController: UIViewController {
                             options: [
                                 .html: SettingsManager.shared.enableHtmlTags,
                                 .breaks: SettingsManager.shared.enableBreaksInParagraph,
+                                .linkify: SettingsManager.shared.linkify
                             ])
         let jsContext = md.jsContext
         let mathParserRule = mathParserRule(for: jsContext)

@@ -267,6 +267,10 @@ extension MarkdownEditorViewController {
     }
     
     func showPopoverIfNeeded() {
+        if !SettingsManager.shared.showFormulaPreview {
+            return
+        }
+        
         let location = textView.selectedRange.location
         var range = NSRange()
         if

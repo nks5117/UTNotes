@@ -11,11 +11,17 @@ import Foundation
 struct SettingsManager {
     static var shared = SettingsManager()
     
-    @Config("enable_html_tags", default: true)
+    @Config("enable_html_tags")
     var enableHtmlTags: Bool
     
     @Config("enable_breaks_in_paragraph", default: true)
     var enableBreaksInParagraph: Bool
+    
+    @Config("linkify")
+    var linkify: Bool
+    
+    @Config("show_formula_preview", default: true)
+    var showFormulaPreview:Bool
     
     @Config("formula_delimiters", default: [
         FormulaDelimiter(left: "$$", right: "$$", display: true),

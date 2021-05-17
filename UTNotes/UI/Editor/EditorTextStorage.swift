@@ -40,7 +40,7 @@ class EditorTextStorage : NSTextStorage {
         }
                 
         setAttributes([
-            .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .regular),
+            .font: UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize, weight: .regular),
             .foregroundColor: UIColor.label
         ], range: NSRange(location: 0, length: length))
         
