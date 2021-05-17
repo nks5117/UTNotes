@@ -40,18 +40,14 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
     ]
     
     lazy var editingToolBarItems: [UIBarButtonItem] = {
-        let italicItem = UIBarButtonItem(image: UIImage(systemName: "italic"), style: .plain, target: self, action: nil)
-        let strikethroughItem = UIBarButtonItem(image: UIImage(systemName: "strikethrough"), style: .plain, target: self, action: nil)
-        italicItem.isEnabled = false
-        strikethroughItem.isEnabled = false
         return [
             UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview)),
             UIBarButtonItem(systemItem: .flexibleSpace),
             UIBarButtonItem(image: UIImage(systemName: "bold"), style: .plain, target: self, action: #selector(bold)),
             UIBarButtonItem(systemItem: .flexibleSpace),
-            italicItem,
+            UIBarButtonItem(image: UIImage(systemName: "italic"), style: .plain, target: self, action: #selector(italic)),
             UIBarButtonItem(systemItem: .flexibleSpace),
-            strikethroughItem,
+            UIBarButtonItem(image: UIImage(systemName: "strikethrough"), style: .plain, target: self, action: #selector(strikethrough)),
             UIBarButtonItem(systemItem: .flexibleSpace),
             UIBarButtonItem(image: UIImage(systemName: "sum"), style: .plain, target: self, action: #selector(editFormula)),
         ]
@@ -168,6 +164,52 @@ extension MarkdownEditorViewController {
             textView.replace(selectedTextRange, withText: "**\(text)**")
             if text.count == 0 {
                 textView.selectedRange.location -= 2
+            }
+        }
+    }
+    
+    @objc
+    func italic() {
+        guard
+            let selectedTextRange = textView.selectedTextRange,
+            let text = textView.text(in: selectedTextRange)
+        else {
+            return
+        }
+        
+        let boldRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*(?=[^*])(.+?)(?<=[^*])\*(?!\*)"#, options: .dotMatchesLineSeparators)
+        let range = NSRange(location: 0, length: (text as NSString).length)
+        
+        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+            let newText = (text as NSString).substring(with: NSRange(location: range.location + 1, length: range.length - 2))
+            textView.replace(selectedTextRange, withText: newText)
+        } else {
+            textView.replace(selectedTextRange, withText: "*\(text)*")
+            if text.count == 0 {
+                textView.selectedRange.location -= 1
+            }
+        }
+    }
+    
+    @objc
+    func strikethrough() {
+        guard
+            let selectedTextRange = textView.selectedTextRange,
+            let text = textView.text(in: selectedTextRange)
+        else {
+            return
+        }
+        
+        let boldRegx = try? NSRegularExpression(pattern: #"(?<!~)~(?=[^~])(.+?)(?<=[^~])~(?!~)"#, options: .dotMatchesLineSeparators)
+        let range = NSRange(location: 0, length: (text as NSString).length)
+        
+        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+            let newText = (text as NSString).substring(with: NSRange(location: range.location + 1, length: range.length - 2))
+            textView.replace(selectedTextRange, withText: newText)
+        } else {
+            textView.replace(selectedTextRange, withText: "~\(text)~")
+            if text.count == 0 {
+                textView.selectedRange.location -= 1
             }
         }
     }
