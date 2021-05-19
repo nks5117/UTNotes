@@ -71,27 +71,38 @@ class EditorTextStorage : NSTextStorage {
         let block : ((String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void) = { [self] str, range, enclosingRange, stop in
             if !inBlockFormula && (blockFormulaStartRegx?.firstMatch(in: string, options: [], range: range) != nil) {
                 inBlockFormula = true
-                addAttributes([
-                    .init("LineInBlockFormula"): range.location
-                ], range: enclosingRange)
                 indexWaitingEnd = range.location
-            } else if blockFormulaEndRegx?.firstMatch(in: string, options: [], range: range) != nil {
+                addAttributes([
+                    .init("LineInBlockFormula"): indexWaitingEnd,
+                    .init("BlockFormulaStart"): true
+                ], range: enclosingRange)
+                removeAttribute(.init("BlockFormula"), range: enclosingRange)
+                updateInlineAttributes(for: enclosingRange)
+            } else if inBlockFormula && blockFormulaEndRegx?.firstMatch(in: string, options: [], range: range) != nil {
                 inBlockFormula = false
                 let index = indexWaitingEnd
                 let formulaRange = NSRange(location: index, length: enclosingRange.location - index + enclosingRange.length)
                 addAttributes([
                     .init("BlockFormula"): (string as NSString).substring(with: formulaRange).trimmingCharacters(in: .whitespaces),
+                    .init("LineInBlockFormula"): indexWaitingEnd
                 ], range: formulaRange)
                 addAttributes(Theme.default.formula, range: formulaRange)
+                removeAttribute(.init("LineInBlockFormula"), range: enclosingRange)
+                removeAttribute(.init("BlockFormulaStart"), range: enclosingRange)
                 if stopOnceMatch {
                     stop.pointee = true
                 }
             } else if inBlockFormula {
+                removeAttribute(.init("BlockFormula"), range: enclosingRange)
                 addAttributes([
                     .init("LineInBlockFormula"): indexWaitingEnd
                 ], range: enclosingRange)
             } else {
-                removeAttribute(.init("LineInBlockFormula"), range: enclosingRange)
+                if attribute(.init("BlockFormula"), at: range.location, effectiveRange: nil) != nil{
+                    removeAttribute(.init("LineInBlockFormula"), range: enclosingRange)
+                    removeAttribute(.init("BlockFormula"), range: enclosingRange)
+                    updateInlineAttributes(for: enclosingRange)
+                }
             }
         }
         
@@ -103,10 +114,9 @@ class EditorTextStorage : NSTextStorage {
             let remainsRange = NSRange(location: lineRange.location + lineRange.length ,
                                       length: (string as NSString).length - lineRange.length - lineRange.location)
             
-            let nextLineInBlockFormula = attribute(.init("BlockFormula"), at: remainsRange.location, effectiveRange: nil) != nil
+            let nextLineInBlockFormula = attribute(.init("LineInBlockFormula"), at: remainsRange.location, effectiveRange: nil) != nil && !(attribute(.init("BlockFormulaStart"), at: remainsRange.location, effectiveRange: nil) as? Bool ?? false)
             
             if inBlockFormula || nextLineInBlockFormula {
-                indexWaitingEnd = attribute(.init("LineInBlockFormula"), at: remainsRange.location - 1, effectiveRange: nil) as? Int ?? -1
                 stopOnceMatch = inBlockFormula && nextLineInBlockFormula
                 (string as NSString).enumerateSubstrings(in: remainsRange,
                                                          options: .byLines,
