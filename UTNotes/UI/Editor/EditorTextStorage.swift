@@ -59,12 +59,10 @@ class EditorTextStorage : NSTextStorage {
     override func processEditing() {
         let lineRange = (string as NSString).lineRange(for: editedRange)
         
-        print("updateInLineAttributes: \(Date.timeIntervalSinceReferenceDate)")
         (string as NSString).enumerateSubstrings(in: lineRange,
                                                  options: .byLines) { str, _, range, _ in
             self.updateInlineAttributes(for: range)
         }
-        print("blockFormulaStart: \(Date.timeIntervalSinceReferenceDate)")
         
         var inBlockFormula = lineRange.location > 0 && (attribute(.init("LineInBlockFormula"), at: lineRange.location - 1, effectiveRange: nil) != nil)
         var indexWaitingEnd: Int = inBlockFormula ? attribute(.init("LineInBlockFormula"), at: lineRange.location - 1, effectiveRange: nil) as? Int ?? 0 : 0
@@ -115,9 +113,6 @@ class EditorTextStorage : NSTextStorage {
                                                          using: block)
             }
         }
-        
-        
-        print("blockFormulaEnd: \(Date.timeIntervalSinceReferenceDate)")
         
         super.processEditing()
     }
