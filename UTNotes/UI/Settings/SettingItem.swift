@@ -15,19 +15,22 @@ protocol SettingItem {
 struct BaseSettingItem: SettingItem {
     let title: String
     let action: (() -> Void)?
+    let subtitle: String?
     
     func configCell(_ cell: UITableViewCell) {
         cell.textLabel?.text = title
         cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = subtitle
     }
     
     func select() {
         action?()
     }
     
-    init (_ title: String, action: (() -> Void)?) {
+    init (_ title: String, subtitle: String? = nil, action: (() -> Void)?) {
         self.title = title
         self.action = action
+        self.subtitle = subtitle
     }
 }
 

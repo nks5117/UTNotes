@@ -26,12 +26,6 @@ struct SettingsManager {
     @Config("show_formula_preview", default: true)
     var showFormulaPreview:Bool
     
-    @Config("formula_delimiters", default: [
-        FormulaDelimiter(left: "$$", right: "$$", display: true),
-        FormulaDelimiter(left: "$", right: "$", display: false)
-    ])
-    var formulaDelimiters: [FormulaDelimiter]
-    
 }
 
 

@@ -15,6 +15,9 @@
 		2F592BBE262F031A006C464D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F592BBC262F031A006C464D /* LaunchScreen.storyboard */; };
 		2F592BC9262F031A006C464D /* UTNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BC8262F031A006C464D /* UTNotesTests.swift */; };
 		2F592BD4262F031A006C464D /* UTNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BD3262F031A006C464D /* UTNotesUITests.swift */; };
+		2F6398262654CD860042E7C9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6398252654CD860042E7C9 /* Theme.swift */; };
+		2F63982B2654DA8C0042E7C9 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63982A2654DA8C0042E7C9 /* UIColor+Additions.swift */; };
+		2F63982F2654ED220042E7C9 /* ThemePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63982E2654ED220042E7C9 /* ThemePickerViewController.swift */; };
 		2F6F755E264D3A6B001FDA97 /* FormulaPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F755D264D3A6B001FDA97 /* FormulaPreviewController.swift */; };
 		2F6F7560264D610B001FDA97 /* EditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F755F264D610B001FDA97 /* EditorTextView.swift */; };
 		2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */; };
@@ -27,7 +30,6 @@
 		2F939E3F2650D8C1003625D7 /* ParserBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E3E2650D8C1003625D7 /* ParserBlock.swift */; };
 		2F939E412650F7C6003625D7 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E402650F7C6003625D7 /* SettingItem.swift */; };
 		2F939E43265160ED003625D7 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E42265160ED003625D7 /* SettingsManager.swift */; };
-		2F939E452652550E003625D7 /* FormulaDelimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E442652550E003625D7 /* FormulaDelimiter.swift */; };
 		2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */ = {isa = PBXBuildFile; fileRef = 2F939E462652A6C1003625D7 /* markdown-it-footnote.js */; };
 		2F939E4A2652A6FB003625D7 /* Footnote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E492652A6FB003625D7 /* Footnote.swift */; };
 		2F939E4C2652A92E003625D7 /* MarkdownItPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F939E4B2652A92E003625D7 /* MarkdownItPlugin.swift */; };
@@ -76,6 +78,9 @@
 		2F592BCF262F031A006C464D /* UTNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UTNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F592BD3262F031A006C464D /* UTNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTNotesUITests.swift; sourceTree = "<group>"; };
 		2F592BD5262F031A006C464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F6398252654CD860042E7C9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2F63982A2654DA8C0042E7C9 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		2F63982E2654ED220042E7C9 /* ThemePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewController.swift; sourceTree = "<group>"; };
 		2F6F755D264D3A6B001FDA97 /* FormulaPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaPreviewController.swift; sourceTree = "<group>"; };
 		2F6F755F264D610B001FDA97 /* EditorTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextView.swift; sourceTree = "<group>"; };
 		2F6F7562264E5D06001FDA97 /* MarkdownIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownIt.swift; sourceTree = "<group>"; };
@@ -88,7 +93,6 @@
 		2F939E3E2650D8C1003625D7 /* ParserBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserBlock.swift; sourceTree = "<group>"; };
 		2F939E402650F7C6003625D7 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		2F939E42265160ED003625D7 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		2F939E442652550E003625D7 /* FormulaDelimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaDelimiter.swift; sourceTree = "<group>"; };
 		2F939E462652A6C1003625D7 /* markdown-it-footnote.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "markdown-it-footnote.js"; sourceTree = "<group>"; };
 		2F939E492652A6FB003625D7 /* Footnote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footnote.swift; sourceTree = "<group>"; };
 		2F939E4B2652A92E003625D7 /* MarkdownItPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownItPlugin.swift; sourceTree = "<group>"; };
@@ -203,6 +207,14 @@
 			path = UTNotesUITests;
 			sourceTree = "<group>";
 		};
+		2F6398272654CEC40042E7C9 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				2F6398252654CD860042E7C9 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		2F6F7561264E5CF4001FDA97 /* MarkdownIt */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +244,7 @@
 				2F939E402650F7C6003625D7 /* SettingItem.swift */,
 				2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */,
 				2F939E42265160ED003625D7 /* SettingsManager.swift */,
-				2F939E442652550E003625D7 /* FormulaDelimiter.swift */,
+				2F63982E2654ED220042E7C9 /* ThemePickerViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -251,7 +263,9 @@
 		2F939E3D26500400003625D7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2F6398272654CEC40042E7C9 /* Theme */,
 				2F6F7561264E5CF4001FDA97 /* MarkdownIt */,
+				2F63982A2654DA8C0042E7C9 /* UIColor+Additions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -610,7 +624,6 @@
 				2F85CA4C264F788000B3EB87 /* MarkdownPreviewViewController.swift in Sources */,
 				2F592BB6262F0319006C464D /* DocumentBrowserViewController.swift in Sources */,
 				2F592BB2262F0319006C464D /* AppDelegate.swift in Sources */,
-				2F939E452652550E003625D7 /* FormulaDelimiter.swift in Sources */,
 				2F939E412650F7C6003625D7 /* SettingItem.swift in Sources */,
 				2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */,
 				2F939E4A2652A6FB003625D7 /* Footnote.swift in Sources */,
@@ -621,7 +634,10 @@
 				2F6F755E264D3A6B001FDA97 /* FormulaPreviewController.swift in Sources */,
 				2FB07E3D2646C3F40086BD8D /* MarkdownEditorViewController.swift in Sources */,
 				2F592BB4262F0319006C464D /* SceneDelegate.swift in Sources */,
+				2F6398262654CD860042E7C9 /* Theme.swift in Sources */,
+				2F63982B2654DA8C0042E7C9 /* UIColor+Additions.swift in Sources */,
 				2F6F7560264D610B001FDA97 /* EditorTextView.swift in Sources */,
+				2F63982F2654ED220042E7C9 /* ThemePickerViewController.swift in Sources */,
 				2FB07E392646C21D0086BD8D /* MarkdownDocument.swift in Sources */,
 				2F939E3F2650D8C1003625D7 /* ParserBlock.swift in Sources */,
 				2F6F7567264E9836001FDA97 /* ParserInline.swift in Sources */,
@@ -797,7 +813,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CFXYR25646;
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -819,7 +835,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CFXYR25646;
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

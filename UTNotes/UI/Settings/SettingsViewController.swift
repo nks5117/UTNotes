@@ -26,14 +26,18 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         title = "Settings"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = footerLabel
         
         settingItems = [
             ("Editor", [
                 SwitchSettingItem("Show formula preview", defaultValue: SettingsManager.shared.showFormulaPreview) { isOn in
                     SettingsManager.shared.showFormulaPreview = isOn
-                }
+                },
+                BaseSettingItem("Theme", subtitle: "Default") {
+                    let vc = ThemePickerViewController(style: .grouped)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                },
             ]),
             ("Preview", [
                 SwitchSettingItem("Enable HTML tags", defaultValue: SettingsManager.shared.enableHtmlTags) { isOn in
@@ -71,9 +75,8 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-            fatalError()
-        }
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .value1, reuseIdentifier: "cell")
+        
         let settingItem = settingItems[indexPath.section].1[indexPath.row]
         settingItem.configCell(cell)
         

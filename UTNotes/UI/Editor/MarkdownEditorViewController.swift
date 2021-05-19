@@ -20,12 +20,13 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
         textView.isScrollEnabled = true
         textView.delegate = self
         textView.layer.insertSublayer(lineIndicatorLayer, at: 0)
+        textView.backgroundColor = Theme.default.backgroundColor
         return textView
     }()
     
     lazy var lineIndicatorLayer: CALayer = {
         let layer = CALayer()
-        layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
+        layer.backgroundColor = Theme.default.lineIndicatorColor.cgColor
         return layer
     }()
     
@@ -154,10 +155,10 @@ extension MarkdownEditorViewController {
             return
         }
         
-        let boldRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*{2}(?=[^*])(.+?)(?<=[^*])\*{2}(?!\*)"#, options: .dotMatchesLineSeparators)
+        let boldRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*{2}(?=[^*])(.+?)(?<=[^*])\*{2}(?!\*)"#, options: [])
         let range = NSRange(location: 0, length: (text as NSString).length)
         
-        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+        if range == boldRegx?.rangeOfFirstMatch(in: text, options: [], range: range) {
             let newText = (text as NSString).substring(with: NSRange(location: range.location + 2, length: range.length - 4))
             textView.replace(selectedTextRange, withText: newText)
         } else {
@@ -177,10 +178,10 @@ extension MarkdownEditorViewController {
             return
         }
         
-        let boldRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*(?=[^*])(.+?)(?<=[^*])\*(?!\*)"#, options: .dotMatchesLineSeparators)
+        let italicRegx = try? NSRegularExpression(pattern: #"(?<!\*)\*(?=[^*])(.+?)(?<=[^*])\*(?!\*)"#, options: [])
         let range = NSRange(location: 0, length: (text as NSString).length)
         
-        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+        if range == italicRegx?.rangeOfFirstMatch(in: text, options: [], range: range) {
             let newText = (text as NSString).substring(with: NSRange(location: range.location + 1, length: range.length - 2))
             textView.replace(selectedTextRange, withText: newText)
         } else {
@@ -200,10 +201,10 @@ extension MarkdownEditorViewController {
             return
         }
         
-        let boldRegx = try? NSRegularExpression(pattern: #"(?<!~)~(?=[^~])(.+?)(?<=[^~])~(?!~)"#, options: .dotMatchesLineSeparators)
+        let strikethroughRegx = try? NSRegularExpression(pattern: #"(?<!~)~(?=[^~])(.+?)(?<=[^~])~(?!~)"#, options: [])
         let range = NSRange(location: 0, length: (text as NSString).length)
         
-        if range == boldRegx?.rangeOfFirstMatch(in: text, options: .init(rawValue: 0), range: range) {
+        if range == strikethroughRegx?.rangeOfFirstMatch(in: text, options: [], range: range) {
             let newText = (text as NSString).substring(with: NSRange(location: range.location + 1, length: range.length - 2))
             textView.replace(selectedTextRange, withText: newText)
         } else {
@@ -318,10 +319,10 @@ extension MarkdownEditorViewController {
         if
             location < (textView.text as NSString).length,
             let selectedTextRange = textView.selectedTextRange,
-            textView.textStorage.attribute(.init("InlineFormula"), at: location, effectiveRange: &range) != nil ||
-            textView.textStorage.attribute(.init("BlockFormula"), at: location, effectiveRange: &range) != nil
+            var latex = textView.textStorage.attribute(.init("InlineFormula"), at: location, effectiveRange: &range) as? String ??
+                textView.textStorage.attribute(.init("InlineBlockFormula"), at: location, effectiveRange: &range) as? String ??
+                textView.textStorage.attribute(.init("BlockFormula"), at: location, effectiveRange: &range) as? String
         {
-            var latex = (textView.text as NSString).substring(with: range)
             let displayMode = latex.starts(with: "$$")
             latex = latex.trimmingCharacters(in: .whitespacesAndNewlines.union(.init(charactersIn: "$")))
             
