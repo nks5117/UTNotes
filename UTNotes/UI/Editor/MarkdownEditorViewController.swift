@@ -274,13 +274,28 @@ extension MarkdownEditorViewController {
             return nil
         }
         if
-            textStorage.attribute(.init("BlockFormula"), at: locationBegin, effectiveRange: &range) != nil,
+            textStorage.attribute(.init("BlockFormula"),
+                                  at: locationBegin,
+                                  longestEffectiveRange: &range,
+                                  in: NSRange(location: 0, length: textStorage.length)) != nil,
             range.location + range.length >= locationEnd
         {
             return range
         }
         if
-            textStorage.attribute(.init("InlineFormula"), at: locationBegin, effectiveRange: &range) != nil,
+            textStorage.attribute(.init("InlineFormula"),
+                                  at: locationBegin,
+                                  longestEffectiveRange: &range,
+                                  in: NSRange(location: 0, length: textStorage.length)) != nil,
+            range.location + range.length >= locationEnd
+        {
+            return range
+        }
+        if
+            textStorage.attribute(.init("InlineBlockFormula"),
+                                  at: locationBegin,
+                                  longestEffectiveRange: &range,
+                                  in: NSRange(location: 0, length: textStorage.length)) != nil,
             range.location + range.length >= locationEnd
         {
             return range

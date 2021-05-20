@@ -22,8 +22,11 @@ class MarkdownPreviewViewController: UIViewController {
     private lazy var webView : WKWebView = WKWebView()
     
     private lazy var md: MarkdownIt = {
-        let jsContext = KatexRenderer.jsContext
-        let md = MarkdownIt(jsContext: KatexRenderer.jsContext,
+        guard let jsContext = JSContext(virtualMachine: JSVirtualMachine()) else {
+            fatalError()
+        }
+        let _ = Katex(jsContext: jsContext)
+        let md = MarkdownIt(jsContext: jsContext,
                             options: [
                                 .html: SettingsManager.shared.enableHtmlTags,
                                 .breaks: SettingsManager.shared.enableBreaksInParagraph,

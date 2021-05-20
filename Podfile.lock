@@ -1,13 +1,13 @@
 PODS:
-  - KatexUtils (0.3.1):
-    - KatexUtils/Core (= 0.3.1)
-  - KatexUtils/Core (0.3.1):
+  - KatexUtils (0.3.3):
+    - KatexUtils/Core (= 0.3.3)
+  - KatexUtils/Core (0.3.3):
     - KatexUtils/Resources
-  - KatexUtils/Resources (0.3.1)
+  - KatexUtils/Resources (0.3.3)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - KatexUtils (= 0.3.1)
+  - KatexUtils (= 0.3.3)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
@@ -16,9 +16,9 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  KatexUtils: da9cb3318b5de9d92612a2332644cf3ff0baa33d
+  KatexUtils: 4e9a7b95514babd43a3707a043f95ff582be078a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: bbd16ad8754fdcd10960e6478c86a18e2d870b8c
+PODFILE CHECKSUM: bc0c39421c076fb279b223848a68a787de4d11ce
 
 COCOAPODS: 1.10.1

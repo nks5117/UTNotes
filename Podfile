@@ -4,7 +4,7 @@ supports_swift_versions '>= 5.0'
 target 'UTNotes' do
   use_frameworks!
 
-  pod 'KatexUtils', '0.3.1'
+  pod 'KatexUtils', '0.3.3'
   pod 'SnapKit', '~> 5.0.0'
 
   target 'UTNotesTests' do
