@@ -21,6 +21,8 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         
         let settings = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settings))
         additionalTrailingNavigationBarButtonItems = [settings]
+        
+        view.tintColor = UIColor(named: "AccentColor")
     }
     
     
