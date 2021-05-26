@@ -9,14 +9,28 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array/>
+			<key>CFBundleTypeMIMETypes</key>
+			<array/>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>CFAOMDocument</string>
 			<key>CFBundleTypeName</key>
-			<string>Text</string>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
+			<string>Text Document</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>GenericDocumentIcon</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.text</string>
+				<string>public.plain-text</string>
+				<string>public.utf8-plain-text</string>
 			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

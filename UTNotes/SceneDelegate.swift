@@ -22,6 +22,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = DocumentBrowserViewController(forOpeningFilesWithContentTypes: nil)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
+        if let url = connectionOptions.urlContexts.first?.url {
+            viewController.presentDocument(at: url)
+        }
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard
+            let viewController = window?.rootViewController as? DocumentBrowserViewController,
+            let url = URLContexts.first?.url
+        else {
+            return
+        }
+        viewController.presentDocument(at: url)
+        return
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
