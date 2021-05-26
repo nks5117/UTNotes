@@ -46,7 +46,9 @@ class FormulaPreviewController: UIViewController, UIPopoverPresentationControlle
             switch status {
             case.finished:
                 DispatchQueue.main.async {
-                    preferredContentSize = CGSize(width: katexView.intrinsicContentSize.width + 20, height: katexView.intrinsicContentSize.height + 20)
+                    let size = CGSize(width: katexView.intrinsicContentSize.width + 20, height: katexView.intrinsicContentSize.height + 20)
+                    preferredContentSize = CGSize(width: max(preferredContentSize.width, size.width),
+                                                  height: max(preferredContentSize.height, size.height))
                     UIView.animate(withDuration: 0.25) {
                         view.alpha = 1.0
                         popoverPresentationController?.containerView?.alpha = 1.0
@@ -86,7 +88,7 @@ class FormulaPreviewController: UIViewController, UIPopoverPresentationControlle
         super.viewWillAppear(animated)
         view.alpha = 0.0
         popoverPresentationController?.containerView?.alpha = 0.0
-        preferredContentSize = CGSize(width: 20, height: 20)
+        preferredContentSize = CGSize(width: 40, height: 50)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
