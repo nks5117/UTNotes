@@ -56,10 +56,16 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
     
     var cancellables : [AnyCancellable] = []
     
-    lazy var loadingView: UIActivityIndicatorView = {
-        let loadingView = UIActivityIndicatorView(style: .large)
-        return loadingView
-    }()
+    func openDocument(at documentURL: URL, completion: (() -> Void)? = nil) {
+        self.documentURL = documentURL
+        document = MarkdownDocument(fileURL: documentURL)
+        document?.open { [self] success in
+            if success {
+                textView.text = document?.text.replacingOccurrences(of: "\r\n", with: "\n")
+                completion?()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         title = document?.fileURL.lastPathComponent
@@ -67,7 +73,6 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
         
         view.addSubview(toolbar)
         view.addSubview(textView)
-        view.addSubview(loadingView)
         
         toolbar.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -78,10 +83,6 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
             make.width.equalTo(view)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(toolbar.snp.top)
-        }
-        
-        loadingView.snp.makeConstraints{ make in
-            make.edges.equalTo(view)
         }
                 
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification).sink { notification in
@@ -109,15 +110,6 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
                 make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             }
         }.store(in: &cancellables)
-        
-        loadingView.startAnimating()
-        
-        document?.open { [self] success in
-            if success {
-                textView.text = document?.text.replacingOccurrences(of: "\r\n", with: "\n")
-                loadingView.stopAnimating()
-            }
-        }
     }
 }
 

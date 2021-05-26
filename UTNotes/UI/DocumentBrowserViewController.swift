@@ -7,8 +7,10 @@
 
 import UIKit
 
-class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
+class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate, UIViewControllerTransitioningDelegate {
 
+    private var transitionController: UIDocumentBrowserTransitionController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,12 +53,20 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func presentDocument(at documentURL: URL) {
         let editorViewController = MarkdownEditorViewController()
-        let document = MarkdownDocument(fileURL: documentURL)
-        editorViewController.document = document
-        editorViewController.documentURL = documentURL
+
         let naviController = UINavigationController(rootViewController: editorViewController)
         naviController.modalPresentationStyle = .fullScreen
-        present(naviController, animated: true)
+        
+        let progress = Progress(totalUnitCount: 0)
+        naviController.transitioningDelegate = self
+        let transitionController = transitionController(forDocumentAt: documentURL)
+        transitionController.targetView = editorViewController.textView
+        transitionController.loadingProgress = progress
+        self.transitionController = transitionController
+        
+        editorViewController.openDocument(at: documentURL) {
+            self.present(naviController, animated: true)
+        }
     }
 }
 
@@ -67,5 +77,16 @@ extension DocumentBrowserViewController {
         naviController.modalPresentationStyle = .popover
         naviController.popoverPresentationController?.barButtonItem = additionalTrailingNavigationBarButtonItems.first
         present(naviController, animated: true)
+    }
+}
+
+
+// UIViewControllerTransitioningDelegate
+extension DocumentBrowserViewController {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionController
+    }
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionController
     }
 }
