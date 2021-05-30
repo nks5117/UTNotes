@@ -25,36 +25,36 @@ class SettingsViewController: UITableViewController {
     }()
     
     override func viewDidLoad() {
-        title = "Settings"
+        title = NSLocalizedString("settings_page_title", comment: "Settings")
         // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = footerLabel
         
         settingItems = [
-            ("Editor", [
-                SwitchSettingItem("Show formula preview", defaultValue: SettingsManager.shared.showFormulaPreview) { isOn in
+            (NSLocalizedString("settings_group_editor", comment: "Editor"), [
+                SwitchSettingItem(NSLocalizedString("settings_item_show_formula_preview", comment: "Show formula preview"), defaultValue: SettingsManager.shared.showFormulaPreview) { isOn in
                     SettingsManager.shared.showFormulaPreview = isOn
                 },
-                BaseSettingItem("Theme", subtitle: "Default") {
+                BaseSettingItem(NSLocalizedString("settings_item_theme", comment: "Theme"), subtitle: NSLocalizedString("editor_theme_default", comment: "Default")) {
                     let vc = ThemePickerViewController(style: .grouped)
                     self.navigationController?.pushViewController(vc, animated: true)
                 },
             ]),
-            ("Preview", [
-                SwitchSettingItem("Enable HTML tags", defaultValue: SettingsManager.shared.enableHtmlTags) { isOn in
+            (NSLocalizedString("settings_group_preview", comment: "Preview"), [
+                SwitchSettingItem(NSLocalizedString("settings_item_enable_html_tags", comment: "Enable HTML tags"), defaultValue: SettingsManager.shared.enableHtmlTags) { isOn in
                     SettingsManager.shared.enableHtmlTags = isOn
                 },
-                SwitchSettingItem("Enable breaks in paragraph", defaultValue: SettingsManager.shared.enableBreaksInParagraph) { isOn in
+                SwitchSettingItem(NSLocalizedString("settings_item_enable_breaks_in_paragraph", comment: "Enable breaks in paragraph"), defaultValue: SettingsManager.shared.enableBreaksInParagraph) { isOn in
                     SettingsManager.shared.enableBreaksInParagraph = isOn
                 },
-                SwitchSettingItem("Autoconvert URL-like text to links", defaultValue: SettingsManager.shared.linkify) { isOn in
+                SwitchSettingItem(NSLocalizedString("settings_item_autoconvert_url_like_text_to_links", comment: "Autoconvert URL-like text to links"), defaultValue: SettingsManager.shared.linkify) { isOn in
                     SettingsManager.shared.linkify = isOn
                 },
-                SwitchSettingItem("Footnote", defaultValue: SettingsManager.shared.footnote) { isOn in
+                SwitchSettingItem(NSLocalizedString("settings_item_footnote", comment: "Footnote"), defaultValue: SettingsManager.shared.footnote) { isOn in
                     SettingsManager.shared.footnote = isOn
                 },
             ]),
-            ("General", [
-                BaseSettingItem("Open Source Licenses") {
+            (NSLocalizedString("settings_group_general", comment: "General"), [
+                BaseSettingItem(NSLocalizedString("settings_item_open_source_licenses", comment: "Open Source Licenses")) {
                     let openSourceVC = OpenSourceViewController()
                     self.navigationController?.pushViewController(openSourceVC, animated: true)
                 },

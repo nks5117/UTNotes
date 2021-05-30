@@ -41,6 +41,7 @@
 		2FB07E452648F6250086BD8D /* opensource in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E442648F6250086BD8D /* opensource */; };
 		2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
+		2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC5F112663B69800F11BAA /* Localizable.strings */; };
 		34450F57E44E5D0ACC56DD2A /* Pods_UTNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55F006FAAF71166C2F5C5DD /* Pods_UTNotes.framework */; };
 		CD0E3BA01A5996E0F459BB81 /* Pods_UTNotesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD52AA99DF25713DAC8280A /* Pods_UTNotesTests.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,8 @@
 		2FB07E442648F6250086BD8D /* opensource */ = {isa = PBXFileReference; lastKnownFileType = text; path = opensource; sourceTree = "<group>"; };
 		2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextStorage.swift; sourceTree = "<group>"; };
 		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
+		2FFC5F102663B69800F11BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2FFC5F122663B6A600F11BAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3037EBBEE9CBE7B95FAAD217 /* Pods-UTNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTNotesTests.release.xcconfig"; path = "Target Support Files/Pods-UTNotesTests/Pods-UTNotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		4EB27474A0C6031845E0E264 /* Pods_UTNotes_UTNotesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTNotes_UTNotesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F616416C9FDB08E7F9F27E1 /* Pods-UTNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTNotes.release.xcconfig"; path = "Target Support Files/Pods-UTNotes/Pods-UTNotes.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +312,7 @@
 				2F592BBA262F031A006C464D /* Assets.xcassets */,
 				2F592BBC262F031A006C464D /* LaunchScreen.storyboard */,
 				2F85CA4D264F816C00B3EB87 /* template.html */,
+				2FFC5F112663B69800F11BAA /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -416,6 +420,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2F592BA5262F0319006C464D;
 			productRefGroup = 2F592BAF262F0319006C464D /* Products */;
@@ -439,6 +444,7 @@
 				2FB07E452648F6250086BD8D /* opensource in Resources */,
 				2F592BBB262F031A006C464D /* Assets.xcassets in Resources */,
 				2F85CA4E264F816C00B3EB87 /* template.html in Resources */,
+				2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */,
 				2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */,
 				2FB07E3F2646C9160086BD8D /* untitled.md in Resources */,
 			);
@@ -686,6 +692,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		2FFC5F112663B69800F11BAA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FFC5F102663B69800F11BAA /* en */,
+				2FFC5F122663B6A600F11BAA /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -693,6 +708,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -754,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -813,7 +830,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CFXYR25646;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -835,7 +852,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CFXYR25646;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

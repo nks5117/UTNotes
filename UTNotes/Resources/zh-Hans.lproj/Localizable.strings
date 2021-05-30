@@ -1,0 +1,23 @@
+/*
+  Localizable.strings
+  UTNotes
+
+  Created by 倪可塑 on 2021/5/30.
+  
+*/
+
+"formula_editor_display_mode"="显示模式";
+"settings_page_title"="设置";
+"settings_group_editor"="编辑器";
+"settings_group_preview"="预览";
+"settings_group_general"="通用";
+"settings_item_show_formula_preview"="开启公式预览";
+"settings_item_theme"="主题";
+"settings_item_enable_html_tags"="转换 HTML 标签";
+"settings_item_enable_breaks_in_paragraph"="允许段内换行";
+"settings_item_autoconvert_url_like_text_to_links"="自动识别 URL 链接";
+"settings_item_footnote"="脚注";
+"settings_item_open_source_licenses"="开源软件许可";
+"editor_theme_default"="默认";
+"button_title_done"="完成";
+"button_title_cancel"="取消";

@@ -45,7 +45,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
     
     lazy var displayModeLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Display mode "
+        label.text = NSLocalizedString("formula_editor_display_mode", comment: "Display mode") + " "
         label.numberOfLines = 1
         label.sizeToFit()
         return label
@@ -53,7 +53,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
     
     lazy var doneButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Done ", for: .normal)
+        button.setTitle(NSLocalizedString("button_title_done", comment: "Done"), for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         button.addTarget(self, action: #selector(done), for: .touchUpInside)
         button.sizeToFit()
@@ -62,7 +62,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
     
     lazy var cancelButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle(NSLocalizedString("button_title_cancel", comment: "Cancel"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         button.sizeToFit()
@@ -107,7 +107,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
         
         doneButton.snp.makeConstraints { make in
             make.centerY.equalTo(displayModeSwitch)
-            make.right.equalTo(settingsBar)
+            make.right.equalTo(settingsBar).offset(-10)
         }
         
         cancelButton.snp.makeConstraints { make in

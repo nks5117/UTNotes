@@ -11,26 +11,26 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array/>
-			<key>CFBundleTypeMIMETypes</key>
-			<array/>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>CFAOMDocument</string>
-			<key>CFBundleTypeName</key>
-			<string>Text Document</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>GenericDocumentIcon</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array/>
+			<key>CFBundleTypeName</key>
+			<string>Text Document</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.text</string>
 				<string>public.plain-text</string>
 				<string>public.utf8-plain-text</string>
 			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>CFAOMDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
@@ -46,7 +46,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>10</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>

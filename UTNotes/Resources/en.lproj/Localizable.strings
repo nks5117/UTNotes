@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  UTNotes
+
+  Created by 倪可塑 on 2021/5/30.
+  
+*/
+
+"formula_editor_display_mode"="Display mode";
+"settings_page_title"="Settings";
+"settings_group_editor"="Editor";
+"settings_group_preview"="Preview";
+"settings_group_general"="General";
+"settings_item_show_formula_preview"="Show formula preview";
+"settings_item_theme"="Theme";
+"settings_item_enable_html_tags"="Enable HTML tags";
+"settings_item_enable_breaks_in_paragraph"="Enable breaks in paragraph";
+"settings_item_autoconvert_url_like_text_to_links"="Autoconvert URL-like text to links";
+"settings_item_footnote"="Footnote";
+"settings_item_open_source_licenses"="Open Source Licenses";
+"editor_theme_default"="Default";
+"button_title_done"="Done";
+"button_title_cancel"="Cancel";
