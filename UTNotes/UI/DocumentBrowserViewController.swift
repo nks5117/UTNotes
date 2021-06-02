@@ -76,6 +76,7 @@ extension DocumentBrowserViewController {
     @objc
     func settings() {
         let naviController = UINavigationController(rootViewController: SettingsViewController(style: .grouped))
+        naviController.modalPresentationCapturesStatusBarAppearance = true
         naviController.modalPresentationStyle = .popover
         naviController.popoverPresentationController?.barButtonItem = additionalTrailingNavigationBarButtonItems.first
         present(naviController, animated: true)

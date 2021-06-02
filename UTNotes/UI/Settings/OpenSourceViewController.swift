@@ -8,14 +8,13 @@
 import UIKit
 import SnapKit
 
-class OpenSourceViewController: UIViewController, UITextViewDelegate {
+class OpenSourceViewController: UIViewController {
     lazy var textView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.font = .monospacedSystemFont(ofSize: 12, weight: .regular)
         if let url = Bundle.main.url(forResource: "opensource", withExtension: "") {
             textView.text = try? String(contentsOf: url)
         }
-        textView.delegate = self
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.sizeToFit()
