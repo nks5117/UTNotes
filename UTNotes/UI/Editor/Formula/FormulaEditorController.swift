@@ -141,6 +141,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        katexView.maxSize = CGSize(width: view.bounds.width - 40, height: 200)
     }
 }
 

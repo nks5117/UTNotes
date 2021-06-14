@@ -239,6 +239,7 @@ extension MarkdownEditorViewController {
             formulaEditor.textView.text = latex
             formulaEditor.editFinished = { [self] text in
                 textView.textStorage.replaceCharacters(in: range, with: text)
+                textView.selectedRange.location = range.location
                 textView.selectedRange.length = (text as NSString).length
             }
         } else {
@@ -383,3 +384,8 @@ extension MarkdownEditorViewController {
     }
 }
 
+extension MarkdownEditorViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        lineIndicatorLayer.backgroundColor = Theme.default.lineIndicatorColor.cgColor
+    }
+}
