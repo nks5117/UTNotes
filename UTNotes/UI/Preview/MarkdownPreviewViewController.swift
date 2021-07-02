@@ -45,7 +45,7 @@ class MarkdownPreviewViewController: UIViewController {
 
     private var html: String = "" {
         didSet {
-            webView.loadHTMLString(html, baseURL: nil)
+            webView.loadHTMLString(html, baseURL: Bundle.main.resourceURL)
         }
     }
     

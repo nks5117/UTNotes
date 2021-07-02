@@ -39,6 +39,8 @@
 		2FB07E412648BC890086BD8D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E402648BC890086BD8D /* SettingsViewController.swift */; };
 		2FB07E432648F5AE0086BD8D /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */; };
 		2FB07E452648F6250086BD8D /* opensource in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E442648F6250086BD8D /* opensource */; };
+		2FC6DDEF268EFCBB0009D6DC /* katex in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDEE268EFCBB0009D6DC /* katex */; };
+		2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */; };
 		2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
 		2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC5F112663B69800F11BAA /* Localizable.strings */; };
@@ -103,6 +105,8 @@
 		2FB07E402648BC890086BD8D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		2FB07E442648F6250086BD8D /* opensource */ = {isa = PBXFileReference; lastKnownFileType = text; path = opensource; sourceTree = "<group>"; };
+		2FC6DDEE268EFCBB0009D6DC /* katex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = katex; sourceTree = "<group>"; };
+		2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.min.css"; sourceTree = "<group>"; };
 		2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextStorage.swift; sourceTree = "<group>"; };
 		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
 		2FFC5F102663B69800F11BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -305,12 +309,14 @@
 		2FD3C49E264C000600667198 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FC6DDEE268EFCBB0009D6DC /* katex */,
 				2F939E462652A6C1003625D7 /* markdown-it-footnote.js */,
 				2F6F7564264E5E15001FDA97 /* markdown-it */,
 				2FB07E442648F6250086BD8D /* opensource */,
 				2FB07E3E2646C8C00086BD8D /* untitled.md */,
 				2F592BBA262F031A006C464D /* Assets.xcassets */,
 				2F592BBC262F031A006C464D /* LaunchScreen.storyboard */,
+				2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */,
 				2F85CA4D264F816C00B3EB87 /* template.html */,
 				2FFC5F112663B69800F11BAA /* Localizable.strings */,
 			);
@@ -440,11 +446,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F7565264E5E15001FDA97 /* markdown-it in Resources */,
+				2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */,
 				2F592BBE262F031A006C464D /* LaunchScreen.storyboard in Resources */,
 				2FB07E452648F6250086BD8D /* opensource in Resources */,
 				2F592BBB262F031A006C464D /* Assets.xcassets in Resources */,
 				2F85CA4E264F816C00B3EB87 /* template.html in Resources */,
 				2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */,
+				2FC6DDEF268EFCBB0009D6DC /* katex in Resources */,
 				2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */,
 				2FB07E3F2646C9160086BD8D /* untitled.md in Resources */,
 			);
