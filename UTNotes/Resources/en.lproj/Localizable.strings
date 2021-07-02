@@ -18,6 +18,7 @@
 "settings_item_autoconvert_url_like_text_to_links"="Autoconvert URL-like text to links";
 "settings_item_footnote"="Footnote";
 "settings_item_open_source_licenses"="Open Source Licenses";
+"settings_item_feedback"="Feedback";
 "editor_theme_default"="Default";
 "button_title_done"="Done";
 "button_title_cancel"="Cancel";

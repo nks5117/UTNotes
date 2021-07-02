@@ -58,6 +58,29 @@ class SettingsViewController: UITableViewController {
                     let openSourceVC = OpenSourceViewController()
                     self.navigationController?.pushViewController(openSourceVC, animated: true)
                 },
+                BaseSettingItem(NSLocalizedString("settings_item_feedback", comment: "Feedback")) {
+                    var systemInfo = utsname()
+                    uname(&systemInfo)
+                    
+                    let machine = withUnsafePointer(to: &systemInfo.machine.0) { ptr in
+                        return String(cString: ptr)
+                    }
+                    let systemName = UIDevice.current.systemName
+                    let systemVersion = UIDevice.current.systemVersion
+                    
+                    let subject = "Feedback - \(machine) \(systemName) \(systemVersion)"
+                    
+                    let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Feedback"
+                    
+                    guard let feedbackUrl = URL(string: "mailto:utnotes@nikesu.com?subject=\(encodedSubject)") else {
+                        return
+                    }
+                    
+                    UIApplication.shared.open(feedbackUrl) { success in
+                        print(success)
+                        return
+                    }
+                },
             ])
         ]
     }
