@@ -21,8 +21,13 @@ class EditorTextView: UITextView {
             super.init(frame: .zero, textContainer: textContainer)
             return
         }
-        
+
+        #if DEBUG
+        let storage = UTTextStorage()
+        #else
         let storage = EditorTextStorage()
+        #endif
+
         let layoutManager = NSLayoutManager()
         storage.addLayoutManager(layoutManager)
         let container = NSTextContainer()
