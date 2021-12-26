@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <tree_sitter/api.h>
+#include "tree_sitter/api.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

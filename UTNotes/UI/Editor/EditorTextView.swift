@@ -22,11 +22,7 @@ class EditorTextView: UITextView {
             return
         }
 
-        #if DEBUG
         let storage = UTTextStorage()
-        #else
-        let storage = EditorTextStorage()
-        #endif
 
         let layoutManager = NSLayoutManager()
         storage.addLayoutManager(layoutManager)

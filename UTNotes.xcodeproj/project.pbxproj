@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		10FE6FCC3084AD8E7685ED8D /* Pods_UTNotes_UTNotesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB27474A0C6031845E0E264 /* Pods_UTNotes_UTNotesUITests.framework */; };
+		2F3EF9F22778731300BFA6A5 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
+		2F3EF9F42778743400BFA6A5 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
+		2F3EF9F52778743400BFA6A5 /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; };
 		2F592BB2262F0319006C464D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BB1262F0319006C464D /* AppDelegate.swift */; };
 		2F592BB4262F0319006C464D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BB3262F0319006C464D /* SceneDelegate.swift */; };
 		2F592BB6262F0319006C464D /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F592BB5262F0319006C464D /* DocumentBrowserViewController.swift */; };
@@ -43,8 +46,8 @@
 		2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */; };
 		2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
-		2FF6E93B2725375F00D027FD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FF6E93C2725375F00D027FD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FF6E93B2725375F00D027FD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
+		2FF6E93C2725375F00D027FD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; };
 		2FF6E93D2725375F00D027FD /* error_costs.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9152725375F00D027FD /* error_costs.h */; };
 		2FF6E93E2725375F00D027FD /* lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9162725375F00D027FD /* lib.c */; };
 		2FF6E93F2725375F00D027FD /* subtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9172725375F00D027FD /* subtree.h */; };
@@ -668,6 +671,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2F3EF9F32778742500BFA6A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F3EF9F42778743400BFA6A5 /* parser.h in Headers */,
+				2F3EF9F52778743400BFA6A5 /* api.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FF6E9002725375000D027FD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -704,6 +716,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3EF9F22778731300BFA6A5 /* parser.h in Headers */,
 				2FF6E9952725378E00D027FD /* inline_context.h in Headers */,
 				2FF6E9942725378E00D027FD /* block_delimiter.h in Headers */,
 				2FF6E9912725378E00D027FD /* inline_scan_util.generated.h in Headers */,
@@ -730,6 +743,7 @@
 			buildConfigurationList = 2F592BD8262F031A006C464D /* Build configuration list for PBXNativeTarget "UTNotes" */;
 			buildPhases = (
 				4646127BDE95AA6E781823D4 /* [CP] Check Pods Manifest.lock */,
+				2F3EF9F32778742500BFA6A5 /* Headers */,
 				2F592BAA262F0319006C464D /* Sources */,
 				2F592BAB262F0319006C464D /* Frameworks */,
 				2F592BAC262F0319006C464D /* Resources */,
@@ -1332,12 +1346,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1359,6 +1375,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "lib/tree_sitter/include/**";
 			};
 			name = Debug;
 		};
@@ -1371,12 +1388,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1397,6 +1416,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UTNotes/UTNotes-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "lib/tree_sitter/include/**";
 			};
 			name = Release;
 		};
@@ -1493,6 +1513,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1510,6 +1531,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1527,6 +1549,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1543,6 +1566,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

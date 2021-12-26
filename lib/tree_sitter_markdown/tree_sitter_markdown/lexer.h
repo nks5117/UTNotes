@@ -1,7 +1,7 @@
 #ifndef TREE_SITTER_MARKDOWN_TRACED_LEXER_H_
 #define TREE_SITTER_MARKDOWN_TRACED_LEXER_H_
 
-#include <tree_sitter/parser.h>
+#include "parser.h"
 #include <vector>
 #include "./shared_type.h"
 #include "./token_type.h"

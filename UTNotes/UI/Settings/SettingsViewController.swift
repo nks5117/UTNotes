@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsViewController: UITableViewController {
     
@@ -76,11 +77,17 @@ class SettingsViewController: UITableViewController {
                         return
                     }
                     
-                    UIApplication.shared.open(feedbackUrl) { success in
-                        print(success)
-                        return
+                    if UIApplication.shared.canOpenURL(feedbackUrl) {
+                        UIApplication.shared.open(feedbackUrl)
                     }
                 },
+                BaseSettingItem(NSLocalizedString("settings_item_privacy_policy", comment: "Privacy Policy")) {
+                    guard let privacyUrl = URL(string: "https://www.nikesu.com/UTNotes/privacy.html") else {
+                        return
+                    }
+                    
+                    self.present(SFSafariViewController(url: privacyUrl), animated: true)
+                }
             ])
         ]
     }
