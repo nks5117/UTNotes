@@ -31,7 +31,8 @@ static NSDictionary<NSString *, NSString *> *patterns = @{
     @"codeBlock1": @"(fenced_code_block)",
     @"codeBlock2": @"(indented_code_block)",
     @"table": @"(table)",
-    @"listMarker": @"(list_marker)"
+    @"listMarker": @"(list_marker)",
+    @"link": @"(link)",
 };
 
 NodeType nodeTypeForCaptureName(const char *name) {
@@ -50,6 +51,7 @@ NodeType nodeTypeForCaptureName(const char *name) {
         @"codeBlock2": @(NodeTypeBlockCode),
         @"table": @(NodeTypeTable),
         @"listMarker": @(NodeTypeListMarker),
+        @"link": @(NodeTypeLink),
     };
     return (NodeType)[dic objectForKey:nsName].unsignedIntValue;
 }

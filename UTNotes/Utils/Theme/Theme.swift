@@ -9,6 +9,11 @@ import UIKit
 
 @objc
 enum NodeType: UInt {
+    case h1
+    case h2
+    case h3
+    case h4
+    case h5
     case text
     case bold
     case italic
@@ -18,11 +23,7 @@ enum NodeType: UInt {
     case blockCode
     case table
     case listMarker
-    case h1
-    case h2
-    case h3
-    case h4
-    case h5
+    case link
 }
 
 @objc
@@ -49,7 +50,7 @@ class Theme: NSObject {
             return descriptor.withSize(0.0).withSymbolicTraits(.traitMonoSpace) ?? descriptor
         case .strikethrough:
             return descriptor.withSize(0.0)
-        case .inlineCode, .blockCode, .table, .listMarker:
+        case .inlineCode, .blockCode, .table, .listMarker, .link:
             return descriptor.withSize(0.0).withSymbolicTraits(.traitMonoSpace) ?? descriptor
         case .h1:
             return descriptor.withSize(defaultSize + 4).withSymbolicTraits(.traitBold) ?? descriptor
@@ -89,7 +90,7 @@ class Theme: NSObject {
             return [
                 .foregroundColor: UIColor.init(light: "001080", dark: "9CDCFE")
             ]
-        case .h1, .h2, .h3, .h4, .h5, .listMarker:
+        case .h1, .h2, .h3, .h4, .h5, .listMarker, .link:
             return [
                 .foregroundColor: UIColor.init(light: "5A7FF6", dark: "4F7AEF"),
             ]
