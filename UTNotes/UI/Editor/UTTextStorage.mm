@@ -7,7 +7,6 @@
 
 #import "UTTextStorage.h"
 #import "tree_sitter/api.h"
-#import "NSString+TSInput.h"
 #import "UTNotes-Swift.h"
 
 #ifdef __cplusplus
@@ -56,10 +55,24 @@ NodeType nodeTypeForCaptureName(const char *name) {
     return (NodeType)[dic objectForKey:nsName].unsignedIntValue;
 }
 
+const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, uint32_t *bytes_read) {
+    NSData *data = (__bridge NSData *)(payload);
+
+    uint32_t end_byte = byte_offset + 32;
+    if (end_byte > 0) {
+        end_byte = (uint32_t)data.length;
+    }
+    *bytes_read = end_byte - byte_offset;
+
+    return (const char *)data.bytes + byte_offset;
+}
+
 @interface UTTextStorage () {
     TSParser *m_parser;
     TSTree *m_tree;
+    NSData *m_data;
 }
+
 @property (nonatomic, strong) NSTextStorage *imp;
 @end
 
@@ -77,6 +90,11 @@ NodeType nodeTypeForCaptureName(const char *name) {
     TSParser *parser = ts_parser_new();
     ts_parser_set_language(parser, tree_sitter_markdown());
     m_parser = parser;
+}
+
+- (void)dealloc {
+    ts_tree_delete(m_tree);
+    ts_parser_delete(m_parser);
 }
 
 - (NSString *)string {
@@ -99,9 +117,11 @@ NodeType nodeTypeForCaptureName(const char *name) {
 
 - (void)processEditing {
     NSLog(@"----begin process editing----");
+    m_data = [self.string dataUsingEncoding:NSUTF16StringEncoding];
+
     if (m_tree == NULL) {
         NSTimeInterval startTime = NSDate.timeIntervalSinceReferenceDate;
-        m_tree = ts_parser_parse(m_parser, NULL, self.string.getTSInput);
+        m_tree = ts_parser_parse(m_parser, NULL, self.getTSInput);
         [self updateAttributesForStartByte:0 endByte:self.string.length * 2];
         NSTimeInterval endTime = NSDate.timeIntervalSinceReferenceDate;
         NSLog(@"first time parse: %f", endTime - startTime);
@@ -118,7 +138,7 @@ NodeType nodeTypeForCaptureName(const char *name) {
         edit.old_end_byte = old_end_byte;
 
         ts_tree_edit(m_tree, &edit);
-        TSTree *newTree = ts_parser_parse(m_parser, m_tree, self.string.getTSInput);
+        TSTree *newTree = ts_parser_parse(m_parser, m_tree, self.getTSInput);
 
         uint32_t rangeCount;
 
@@ -239,6 +259,14 @@ NodeType nodeTypeForCaptureName(const char *name) {
     }
 
     return NSMakeRange(startByte / 2, length);
+}
+
+- (TSInput)getTSInput {
+    TSInput input;
+    input.payload = (__bridge void *)(m_data);
+    input.encoding = TSInputEncodingUTF16;
+    input.read = readString16;
+    return input;
 }
 
 @end

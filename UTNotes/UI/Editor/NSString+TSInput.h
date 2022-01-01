@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (TSInput)
-- (TSInput)getTSInput;
-@end
+//@interface NSString (TSInput)
+//- (TSInput)getTSInput;
+//@end
 
 NS_ASSUME_NONNULL_END
