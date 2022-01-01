@@ -98,10 +98,16 @@ NodeType nodeTypeForCaptureName(const char *name) {
 }
 
 - (void)processEditing {
+    NSLog(@"----begin process editing----");
     if (m_tree == NULL) {
+        NSTimeInterval startTime = NSDate.timeIntervalSinceReferenceDate;
         m_tree = ts_parser_parse(m_parser, NULL, self.string.getTSInput);
         [self updateAttributesForStartByte:0 endByte:self.string.length * 2];
+        NSTimeInterval endTime = NSDate.timeIntervalSinceReferenceDate;
+        NSLog(@"first time parse: %f", endTime - startTime);
     } else {
+        NSTimeInterval startTime = NSDate.timeIntervalSinceReferenceDate;
+
         uint32_t start_byte = (uint32_t)self.editedRange.location * 2;
         uint32_t new_end_byte = start_byte + (uint32_t)self.editedRange.length * 2;
         uint32_t old_end_byte = (uint32_t)new_end_byte - (uint32_t)self.changeInLength * 2;
@@ -120,29 +126,35 @@ NodeType nodeTypeForCaptureName(const char *name) {
         ts_tree_delete(m_tree);
         m_tree = newTree;
 
-        NSLog(@"-----parsing edited ranges-----");
+        NSTimeInterval endTime = NSDate.timeIntervalSinceReferenceDate;
+        NSLog(@"incremental parse: %f", endTime - startTime);
+
+        startTime = NSDate.timeIntervalSinceReferenceDate;
         for (int i = 0; i < rangeCount; i++) {
-#if DEBUG
-            NSLog(@"  (%d, %d)", editedRanges[i].start_byte, editedRanges[i].end_byte);
-#endif
             [self updateAttributesForStartByte:editedRanges[i].start_byte endByte:editedRanges[i].end_byte];
         }
-        NSLog(@"-----end parsing-----");
+        endTime = NSDate.timeIntervalSinceReferenceDate;
+        NSLog(@"update attributes: %f", endTime - startTime);
+
+        free(editedRanges);
     }
 
 #if DEBUG
-    NSLog(@"%s", ts_node_string(ts_tree_root_node(m_tree)));
+//    NSLog(@"%s", ts_node_string(ts_tree_root_node(m_tree)));
 //    ts_tree_print_dot_graph(m_tree, stdout);
 #endif
+    NSLog(@"----end process editing----");
 
     [super processEditing];
 }
 
 - (void)updateAttributesForStartByte:(NSUInteger)startByte endByte:(NSUInteger)endByte {
-    TSTreeCursor cursor = ts_tree_cursor_new(ts_tree_root_node(m_tree));
-    ts_tree_cursor_goto_first_child_for_byte(&cursor, (uint32_t)startByte);
-    ts_tree_cursor_goto_parent(&cursor);
-    TSNode currentNode = ts_tree_cursor_current_node(&cursor);
+    if (startByte >= endByte) {
+        return;
+    }
+
+    TSNode currentNode = ts_node_descendant_for_byte_range(ts_tree_root_node(m_tree), (uint32_t)startByte, (uint32_t)endByte);
+
     uint32_t nodeStartByte = ts_node_start_byte(currentNode) - 2;
     uint32_t nodeEndByte = ts_node_end_byte(currentNode) - 2;
     NSRange range = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
@@ -151,13 +163,11 @@ NodeType nodeTypeForCaptureName(const char *name) {
         return;
     }
 
-    [self removeAttribute:@"InlineFormula" range:range];
-    [self removeAttribute:@"InlineBlockFormula" range:range];
-    [self setAttributes:[Theme.defaultTheme attributesFor:NodeTypeText] range:range];
-    [self addAttribute:NSFontAttributeName value:Theme.defaultTheme.defaultFount range:range];
+    NSMutableDictionary<NSAttributedStringKey, id> *attributes = [Theme.defaultTheme attributesFor:NodeTypeText].mutableCopy;
+    [attributes setValue:Theme.defaultTheme.defaultFount forKey:NSFontAttributeName];
+    [self setAttributes:attributes range:range];
 
     NSMutableString *queryString = @"".mutableCopy;
-
     for (NSString *name in patterns) {
         NSString *query = [patterns objectForKey:name];
         [queryString appendFormat:@"%@ @%@ ", query, name];
@@ -176,7 +186,6 @@ NodeType nodeTypeForCaptureName(const char *name) {
     ts_query_cursor_exec(queryCursor, query, ts_tree_root_node(m_tree));
 
     TSQueryMatch match;
-
     while (ts_query_cursor_next_match(queryCursor, &match)) {
         uint32_t length;
         const char *name = ts_query_capture_name_for_id(query, match.pattern_index, &length);
@@ -200,18 +209,20 @@ NodeType nodeTypeForCaptureName(const char *name) {
                 fontSize = currentFont.pointSize;
             }
 
-            [self addAttributes:attributes range:range];
-            [self addAttribute:NSFontAttributeName value:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] range:range];
+            NSMutableDictionary<NSAttributedStringKey, id> *mutableAttributes = attributes.mutableCopy;
+            [mutableAttributes setValue:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
 
             if (nodeType == NodeTypeInlineCode) {
                 if ([[self.string substringWithRange:NSMakeRange(range.location, 1)] isEqualToString:@"$"]) {
                     if ([[self.string substringWithRange:NSMakeRange(range.location, 2)] isEqualToString:@"$$"]) {
-                        [self addAttribute:@"InlineFormula" value:[self.string substringWithRange:range] range:range];
+                        [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineBlockFormula"];
                     } else {
-                        [self addAttribute:@"InlineBlockFormula" value:[self.string substringWithRange:range] range:range];
+                        [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineFormula"];
                     }
                 }
             }
+
+            [self addAttributes:mutableAttributes range:range];
         }
     }
 
