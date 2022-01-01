@@ -241,7 +241,11 @@ bool /*is_interrupted*/ scn_eol(Lexer &lxr, BlockDelimiterList &blk_dlms, BlockC
         LexedLength ind_chr_cnt;
         LexedLength vrt_spc_cnt = lxr.clc_vtr_spc_cnt(cur_ind, 0, ind_chr_cnt);
         tmp_blk_dlms.push_back(BlockDelimiter(SYM_LIT_LBK, lst_bgn_pos.dist(lst_non_wsp_end_pos) + ind_chr_cnt));
-        if (BSR_ACCEPT == scn_fen_cod('`', SYM_BTK_FEN_COD_END, /*min_len*/ blk_ctx_stk.back().len(), /*allow_non_wsp*/ false, /*allow_dlm_chr*/ false, lxr, tmp_blk_dlms, cur_ind + blk_ctx_stk.back().ind(), is_pas_all_blk_ctx, false)) {
+        LexedCharacter chr = '`';
+        if (lxr.lka_chr() == '$') {
+          chr = '$';
+        }
+        if (BSR_ACCEPT == scn_fen_cod(chr, SYM_BTK_FEN_COD_END, /*min_len*/ blk_ctx_stk.back().len(), /*allow_non_wsp*/ false, /*allow_dlm_chr*/ false, lxr, tmp_blk_dlms, cur_ind + blk_ctx_stk.back().ind(), is_pas_all_blk_ctx, false)) {
           has_end_mkr = true;
           tmp_blk_dlms.push_back(BlockDelimiter(SYM_BTK_FEN_COD_END_MKR, lxr.cur_pos(), lxr.cur_pos()));
         } else {
@@ -567,7 +571,11 @@ BlockScanResult scn_blk_asr(Lexer &lxr, BlockDelimiterList &blk_dlms, const Lexe
 }
 
 BlockScanResult scn_blk_btk(Lexer &lxr, BlockDelimiterList &blk_dlms, const LexedColumn ind, const bool is_pas_all_blk_ctx, const bool is_pgh_cont_ln) {
-  return scn_fen_cod('`', SYM_BTK_FEN_COD_BGN, /*min_len*/ 3, /*allow_non_wsp*/ true, /*allow_dlm_chr*/ false, lxr, blk_dlms, ind, is_pas_all_blk_ctx, is_pgh_cont_ln);
+  LexedCharacter chr = '`';
+  if (lxr.lka_chr() == '$') {
+    chr = '$';
+  }
+  return scn_fen_cod(chr, SYM_BTK_FEN_COD_BGN, /*min_len*/ 3, /*allow_non_wsp*/ true, /*allow_dlm_chr*/ false, lxr, blk_dlms, ind, is_pas_all_blk_ctx, is_pgh_cont_ln);
 }
 
 BlockScanResult scn_blk_eql(Lexer &lxr, BlockDelimiterList &blk_dlms, const LexedColumn ind, const bool is_pas_all_blk_ctx, const bool is_pgh_cont_ln) {

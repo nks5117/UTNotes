@@ -64,7 +64,7 @@ TokenType BlockDelimiter::tkn_typ(LexedCharacter c) const {
   else if (sym_ == SYM_IND_COD_BGN_PFX) { if (is_wsp_chr(c)) return TKN_IND_COD_BGN_PFX; }
   else if (sym_ == SYM_IND_COD_BGN_MKR) { return TKN_IND_COD_BGN_MKR; }
   else if (sym_ == SYM_FEN_COD_CTN_BGN_MKR) { return TKN_FEN_COD_CTN_BGN_MKR; }
-  else if (sym_ == SYM_BTK_FEN_COD_BGN) { if (c == '`') return TKN_FEN_COD_BGN; }
+  else if (sym_ == SYM_BTK_FEN_COD_BGN) { if (c == '`' || c == '$') return TKN_FEN_COD_BGN; }
   else if (sym_ == SYM_TLD_FEN_COD_BGN) { if (c == '~') return TKN_FEN_COD_BGN; }
   else if (sym_ == SYM_HTM_BLK_SCR_BGN_MKR) { if (c == '<') return TKN_HTM_BLK_SCR_BGN_MKR; }
   else if (sym_ == SYM_HTM_BLK_CMT_BGN_MKR) { if (c == '<') return TKN_HTM_BLK_CMT_BGN_MKR; }
@@ -94,7 +94,7 @@ TokenType BlockDelimiter::tkn_typ(LexedCharacter c) const {
   else if (sym_ == SYM_STX_END_MKR) { if (is_eol_chr(c)) return TKN_STX_END_MKR; }
   else if (sym_ == SYM_ATX_END_MKR) { if (is_eol_chr(c)) return TKN_ATX_END_MKR; }
   else if (sym_ == SYM_IND_COD_END_MKR) { if (is_eol_chr(c)) return TKN_IND_COD_END_MKR; }
-  else if (sym_ == SYM_BTK_FEN_COD_END) { if (c == '`') return TKN_FEN_COD_END; }
+  else if (sym_ == SYM_BTK_FEN_COD_END) { if (c == '`' || c == '$') return TKN_FEN_COD_END; }
   else if (sym_ == SYM_BTK_FEN_COD_END_MKR) { if (is_eol_chr(c)) return TKN_FEN_COD_END_MKR; }
   else if (sym_ == SYM_TLD_FEN_COD_END) { if (c == '~') return TKN_FEN_COD_END; }
   else if (sym_ == SYM_TLD_FEN_COD_END_MKR) { if (is_eol_chr(c)) return TKN_FEN_COD_END_MKR; }

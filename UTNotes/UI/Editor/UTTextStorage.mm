@@ -54,13 +54,6 @@ NodeType nodeTypeForCaptureName(const char *name) {
     return (NodeType)[dic objectForKey:nsName].unsignedIntValue;
 }
 
-NSDictionary<NSAttributedStringKey, id> *attributesForCaptureName(const char *name) {
-    NodeType nodeType = nodeTypeForCaptureName(name);
-
-    return [Theme.defaultTheme attributesFor:nodeType];
-}
-
-
 @interface UTTextStorage () {
     TSParser *m_parser;
     TSTree *m_tree;
@@ -156,6 +149,8 @@ NSDictionary<NSAttributedStringKey, id> *attributesForCaptureName(const char *na
         return;
     }
 
+    [self removeAttribute:@"InlineFormula" range:range];
+    [self removeAttribute:@"InlineBlockFormula" range:range];
     [self setAttributes:[Theme.defaultTheme attributesFor:NodeTypeText] range:range];
     [self addAttribute:NSFontAttributeName value:Theme.defaultTheme.defaultFount range:range];
 
@@ -183,15 +178,16 @@ NSDictionary<NSAttributedStringKey, id> *attributesForCaptureName(const char *na
     while (ts_query_cursor_next_match(queryCursor, &match)) {
         uint32_t length;
         const char *name = ts_query_capture_name_for_id(query, match.pattern_index, &length);
-        NSDictionary<NSAttributedStringKey, id> *attributes = attributesForCaptureName(name);
-        UIFontDescriptor *fontDescriptor = [Theme.defaultTheme fontDescriptorFor:nodeTypeForCaptureName(name)];
+        NodeType nodeType = nodeTypeForCaptureName(name);
+
+        NSDictionary<NSAttributedStringKey, id> *attributes = [Theme.defaultTheme attributesFor:nodeType];
+        UIFontDescriptor *fontDescriptor = [Theme.defaultTheme fontDescriptorFor:nodeType];
+
         for (int i = 0; i < match.capture_count; i++) {
             TSNode node = match.captures[i].node;
             uint32_t nodeStartByte = ts_node_start_byte(node) - 2;
             uint32_t nodeEndByte = ts_node_end_byte(node) - 2;
             NSRange range = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
-            NSLog(@"%s", ts_node_string(node));
-            NSLog(@"%s", name);
 
             CGFloat fontSize = fontDescriptor.pointSize;
             if (fontDescriptor.pointSize == 0.0) {
@@ -204,6 +200,16 @@ NSDictionary<NSAttributedStringKey, id> *attributesForCaptureName(const char *na
 
             [self addAttributes:attributes range:range];
             [self addAttribute:NSFontAttributeName value:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] range:range];
+
+            if (nodeType == NodeTypeInlineCode) {
+                if ([[self.string substringWithRange:NSMakeRange(range.location, 1)] isEqualToString:@"$"]) {
+                    if ([[self.string substringWithRange:NSMakeRange(range.location, 2)] isEqualToString:@"$$"]) {
+                        [self addAttribute:@"InlineFormula" value:[self.string substringWithRange:range] range:range];
+                    } else {
+                        [self addAttribute:@"InlineBlockFormula" value:[self.string substringWithRange:range] range:range];
+                    }
+                }
+            }
         }
     }
 

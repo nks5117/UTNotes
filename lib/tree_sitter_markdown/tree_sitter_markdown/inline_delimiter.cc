@@ -89,9 +89,9 @@ TokenType MinimizedInlineDelimiter::tkn_typ(LexedCharacter cur_chr, LexedCharact
   } else if (sym_ == SYM_LNK_REF_END) {
     if (lka_chr == ']') return TKN_LNK_REF_END;
   } else if (sym_ == SYM_COD_SPN_BGN) {
-    if (lka_chr == '`') return TKN_COD_SPN_BGN;
+    if (lka_chr == '`' || lka_chr == '$') return TKN_COD_SPN_BGN;
   } else if (sym_ == SYM_COD_SPN_END) {
-    if (lka_chr == '`') return TKN_COD_SPN_END;
+    if (lka_chr == '`' || lka_chr == '$') return TKN_COD_SPN_END;
   } else if (sym_ == SYM_EXT_AUT_LNK_BGN) {
     if (is_ext_aut_lnk_bgn(cur_chr, lka_chr)) return TKN_TXT;
   } else if (sym_ == SYM_EXT_WWW_AUT_LNK_BGN_MKR) {

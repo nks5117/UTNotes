@@ -642,9 +642,9 @@ bool scn_inl_bsl(Lexer &lxr, InlineDelimiterList &inl_dlms, InlineContextStack &
 }
 
 bool scn_inl_btk(Lexer &lxr, InlineDelimiterList &inl_dlms, InlineContextStack &inl_ctx_stk, BlockDelimiterList &blk_dlms, BlockContextStack &blk_ctx_stk, const InlineDelimiterList::Iterator &nxt_inl_dlm_itr) {
-  if (lxr.lka_chr() != '`' || !(VLD(SYM_COD_SPN_BGN) || VLD(SYM_COD_SPN_END))) return false;
+  if ((lxr.lka_chr() != '`' && lxr.lka_chr() != '$') || !(VLD(SYM_COD_SPN_BGN) || VLD(SYM_COD_SPN_END))) return false;
   LexedPosition bgn_pos = lxr.cur_pos();
-  LexedLength btk_len = lxr.adv_rpt_len('`');
+  LexedLength btk_len = lxr.adv_rpt_len(lxr.lka_chr());
   LexedPosition end_pos = lxr.cur_pos();
   if (VLD(SYM_COD_SPN_BGN)) {
     inl_ctx_stk.push(
