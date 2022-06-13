@@ -6,6 +6,7 @@
 
 # Cocoapods
 Pods/
+Podfile.lock
 
 # Xcode
 build/
@@ -18,6 +19,7 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+*.xcodeproj/xcuserdata/
 *.xccheckout
 profile
 *.moved-aside
