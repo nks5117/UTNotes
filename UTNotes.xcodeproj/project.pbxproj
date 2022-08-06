@@ -45,42 +45,44 @@
 		2FC6DDEF268EFCBB0009D6DC /* katex in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDEE268EFCBB0009D6DC /* katex */; };
 		2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
+		2FF54F3D289EE93600932677 /* error_costs.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F15289EE93600932677 /* error_costs.h */; };
+		2FF54F3E289EE93600932677 /* lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F16289EE93600932677 /* lib.c */; };
+		2FF54F3F289EE93600932677 /* subtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F17289EE93600932677 /* subtree.h */; };
+		2FF54F40289EE93600932677 /* reusable_node.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F18289EE93600932677 /* reusable_node.h */; };
+		2FF54F41289EE93600932677 /* host.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F19289EE93600932677 /* host.h */; };
+		2FF54F42289EE93600932677 /* point.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F1A289EE93600932677 /* point.h */; };
+		2FF54F43289EE93600932677 /* ptypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F1C289EE93600932677 /* ptypes.h */; };
+		2FF54F44289EE93600932677 /* utf.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F1E289EE93600932677 /* utf.h */; };
+		2FF54F45289EE93600932677 /* urename.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F1F289EE93600932677 /* urename.h */; };
+		2FF54F46289EE93600932677 /* umachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F21289EE93600932677 /* umachine.h */; };
+		2FF54F47289EE93600932677 /* utf16.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F23289EE93600932677 /* utf16.h */; };
+		2FF54F48289EE93600932677 /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F24289EE93600932677 /* utf8.h */; };
+		2FF54F49289EE93600932677 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F25289EE93600932677 /* stack.c */; };
+		2FF54F4A289EE93600932677 /* tree_cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F26289EE93600932677 /* tree_cursor.h */; };
+		2FF54F4B289EE93600932677 /* language.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F27289EE93600932677 /* language.h */; };
+		2FF54F4C289EE93600932677 /* lexer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F28289EE93600932677 /* lexer.c */; };
+		2FF54F4D289EE93600932677 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F29289EE93600932677 /* tree.h */; };
+		2FF54F4E289EE93600932677 /* get_changed_ranges.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F2A289EE93600932677 /* get_changed_ranges.c */; };
+		2FF54F4F289EE93600932677 /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F2B289EE93600932677 /* alloc.c */; };
+		2FF54F50289EE93600932677 /* unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F2C289EE93600932677 /* unicode.h */; };
+		2FF54F51289EE93600932677 /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F2D289EE93600932677 /* array.h */; };
+		2FF54F52289EE93600932677 /* query.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F2E289EE93600932677 /* query.c */; };
+		2FF54F53289EE93600932677 /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F2F289EE93600932677 /* stack.h */; };
+		2FF54F54289EE93600932677 /* subtree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F30289EE93600932677 /* subtree.c */; };
+		2FF54F55289EE93600932677 /* length.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F31289EE93600932677 /* length.h */; };
+		2FF54F56289EE93600932677 /* lexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F32289EE93600932677 /* lexer.h */; };
+		2FF54F57289EE93600932677 /* language.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F33289EE93600932677 /* language.c */; };
+		2FF54F58289EE93600932677 /* reduce_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F34289EE93600932677 /* reduce_action.h */; };
+		2FF54F59289EE93600932677 /* tree_cursor.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F35289EE93600932677 /* tree_cursor.c */; };
+		2FF54F5A289EE93600932677 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F36289EE93600932677 /* parser.c */; };
+		2FF54F5B289EE93600932677 /* clock.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F37289EE93600932677 /* clock.h */; };
+		2FF54F5C289EE93600932677 /* alloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F38289EE93600932677 /* alloc.h */; };
+		2FF54F5D289EE93600932677 /* node.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F39289EE93600932677 /* node.c */; };
+		2FF54F5E289EE93600932677 /* get_changed_ranges.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F3A289EE93600932677 /* get_changed_ranges.h */; };
+		2FF54F5F289EE93600932677 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F3B289EE93600932677 /* tree.c */; };
+		2FF54F60289EE93600932677 /* atomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F3C289EE93600932677 /* atomic.h */; };
 		2FF6E93B2725375F00D027FD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
 		2FF6E93C2725375F00D027FD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; };
-		2FF6E93D2725375F00D027FD /* error_costs.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9152725375F00D027FD /* error_costs.h */; };
-		2FF6E93E2725375F00D027FD /* lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9162725375F00D027FD /* lib.c */; };
-		2FF6E93F2725375F00D027FD /* subtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9172725375F00D027FD /* subtree.h */; };
-		2FF6E9402725375F00D027FD /* reusable_node.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9182725375F00D027FD /* reusable_node.h */; };
-		2FF6E9412725375F00D027FD /* point.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9192725375F00D027FD /* point.h */; };
-		2FF6E9422725375F00D027FD /* ptypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E91B2725375F00D027FD /* ptypes.h */; };
-		2FF6E9432725375F00D027FD /* utf.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E91D2725375F00D027FD /* utf.h */; };
-		2FF6E9442725375F00D027FD /* urename.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E91E2725375F00D027FD /* urename.h */; };
-		2FF6E9452725375F00D027FD /* umachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9202725375F00D027FD /* umachine.h */; };
-		2FF6E9462725375F00D027FD /* utf16.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9222725375F00D027FD /* utf16.h */; };
-		2FF6E9472725375F00D027FD /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9232725375F00D027FD /* utf8.h */; };
-		2FF6E9482725375F00D027FD /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9242725375F00D027FD /* stack.c */; };
-		2FF6E9492725375F00D027FD /* tree_cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9252725375F00D027FD /* tree_cursor.h */; };
-		2FF6E94A2725375F00D027FD /* language.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9262725375F00D027FD /* language.h */; };
-		2FF6E94B2725375F00D027FD /* lexer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9272725375F00D027FD /* lexer.c */; };
-		2FF6E94C2725375F00D027FD /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9282725375F00D027FD /* tree.h */; };
-		2FF6E94D2725375F00D027FD /* get_changed_ranges.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9292725375F00D027FD /* get_changed_ranges.c */; };
-		2FF6E94E2725375F00D027FD /* unicode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E92A2725375F00D027FD /* unicode.h */; };
-		2FF6E94F2725375F00D027FD /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E92B2725375F00D027FD /* array.h */; };
-		2FF6E9502725375F00D027FD /* query.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E92C2725375F00D027FD /* query.c */; };
-		2FF6E9512725375F00D027FD /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E92D2725375F00D027FD /* stack.h */; };
-		2FF6E9522725375F00D027FD /* subtree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E92E2725375F00D027FD /* subtree.c */; };
-		2FF6E9532725375F00D027FD /* length.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E92F2725375F00D027FD /* length.h */; };
-		2FF6E9542725375F00D027FD /* lexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9302725375F00D027FD /* lexer.h */; };
-		2FF6E9552725375F00D027FD /* language.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9312725375F00D027FD /* language.c */; };
-		2FF6E9562725375F00D027FD /* reduce_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9322725375F00D027FD /* reduce_action.h */; };
-		2FF6E9572725375F00D027FD /* tree_cursor.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9332725375F00D027FD /* tree_cursor.c */; };
-		2FF6E9582725375F00D027FD /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9342725375F00D027FD /* parser.c */; };
-		2FF6E9592725375F00D027FD /* clock.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9352725375F00D027FD /* clock.h */; };
-		2FF6E95A2725375F00D027FD /* alloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9362725375F00D027FD /* alloc.h */; };
-		2FF6E95B2725375F00D027FD /* node.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9372725375F00D027FD /* node.c */; };
-		2FF6E95C2725375F00D027FD /* get_changed_ranges.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9382725375F00D027FD /* get_changed_ranges.h */; };
-		2FF6E95D2725375F00D027FD /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9392725375F00D027FD /* tree.c */; };
-		2FF6E95E2725375F00D027FD /* atomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E93A2725375F00D027FD /* atomic.h */; };
 		2FF6E9912725378E00D027FD /* inline_scan_util.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9702725378E00D027FD /* inline_scan_util.generated.h */; };
 		2FF6E9922725378E00D027FD /* block_scan.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9712725378E00D027FD /* block_scan.h */; };
 		2FF6E9932725378E00D027FD /* block_scan_util.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9722725378E00D027FD /* block_scan_util.generated.h */; };
@@ -203,46 +205,48 @@
 		2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.min.css"; sourceTree = "<group>"; };
 		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
 		2FF54EC3289EE10F00932677 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2FF54F15289EE93600932677 /* error_costs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error_costs.h; sourceTree = "<group>"; };
+		2FF54F16289EE93600932677 /* lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lib.c; sourceTree = "<group>"; };
+		2FF54F17289EE93600932677 /* subtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subtree.h; sourceTree = "<group>"; };
+		2FF54F18289EE93600932677 /* reusable_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reusable_node.h; sourceTree = "<group>"; };
+		2FF54F19289EE93600932677 /* host.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = host.h; sourceTree = "<group>"; };
+		2FF54F1A289EE93600932677 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
+		2FF54F1C289EE93600932677 /* ptypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ptypes.h; sourceTree = "<group>"; };
+		2FF54F1D289EE93600932677 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2FF54F1E289EE93600932677 /* utf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf.h; sourceTree = "<group>"; };
+		2FF54F1F289EE93600932677 /* urename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urename.h; sourceTree = "<group>"; };
+		2FF54F20289EE93600932677 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2FF54F21289EE93600932677 /* umachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = umachine.h; sourceTree = "<group>"; };
+		2FF54F22289EE93600932677 /* ICU_SHA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ICU_SHA; sourceTree = "<group>"; };
+		2FF54F23289EE93600932677 /* utf16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf16.h; sourceTree = "<group>"; };
+		2FF54F24289EE93600932677 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		2FF54F25289EE93600932677 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		2FF54F26289EE93600932677 /* tree_cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree_cursor.h; sourceTree = "<group>"; };
+		2FF54F27289EE93600932677 /* language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = language.h; sourceTree = "<group>"; };
+		2FF54F28289EE93600932677 /* lexer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lexer.c; sourceTree = "<group>"; };
+		2FF54F29289EE93600932677 /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		2FF54F2A289EE93600932677 /* get_changed_ranges.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = get_changed_ranges.c; sourceTree = "<group>"; };
+		2FF54F2B289EE93600932677 /* alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alloc.c; sourceTree = "<group>"; };
+		2FF54F2C289EE93600932677 /* unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unicode.h; sourceTree = "<group>"; };
+		2FF54F2D289EE93600932677 /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
+		2FF54F2E289EE93600932677 /* query.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = query.c; sourceTree = "<group>"; };
+		2FF54F2F289EE93600932677 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		2FF54F30289EE93600932677 /* subtree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = subtree.c; sourceTree = "<group>"; };
+		2FF54F31289EE93600932677 /* length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = length.h; sourceTree = "<group>"; };
+		2FF54F32289EE93600932677 /* lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lexer.h; sourceTree = "<group>"; };
+		2FF54F33289EE93600932677 /* language.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = language.c; sourceTree = "<group>"; };
+		2FF54F34289EE93600932677 /* reduce_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reduce_action.h; sourceTree = "<group>"; };
+		2FF54F35289EE93600932677 /* tree_cursor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree_cursor.c; sourceTree = "<group>"; };
+		2FF54F36289EE93600932677 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		2FF54F37289EE93600932677 /* clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clock.h; sourceTree = "<group>"; };
+		2FF54F38289EE93600932677 /* alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alloc.h; sourceTree = "<group>"; };
+		2FF54F39289EE93600932677 /* node.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = node.c; sourceTree = "<group>"; };
+		2FF54F3A289EE93600932677 /* get_changed_ranges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_changed_ranges.h; sourceTree = "<group>"; };
+		2FF54F3B289EE93600932677 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
+		2FF54F3C289EE93600932677 /* atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atomic.h; sourceTree = "<group>"; };
 		2FF6E9042725375000D027FD /* libtree_sitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtree_sitter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6E9122725375F00D027FD /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		2FF6E9132725375F00D027FD /* api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = api.h; sourceTree = "<group>"; };
-		2FF6E9152725375F00D027FD /* error_costs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error_costs.h; sourceTree = "<group>"; };
-		2FF6E9162725375F00D027FD /* lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lib.c; sourceTree = "<group>"; };
-		2FF6E9172725375F00D027FD /* subtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subtree.h; sourceTree = "<group>"; };
-		2FF6E9182725375F00D027FD /* reusable_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reusable_node.h; sourceTree = "<group>"; };
-		2FF6E9192725375F00D027FD /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
-		2FF6E91B2725375F00D027FD /* ptypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ptypes.h; sourceTree = "<group>"; };
-		2FF6E91C2725375F00D027FD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		2FF6E91D2725375F00D027FD /* utf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf.h; sourceTree = "<group>"; };
-		2FF6E91E2725375F00D027FD /* urename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urename.h; sourceTree = "<group>"; };
-		2FF6E91F2725375F00D027FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2FF6E9202725375F00D027FD /* umachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = umachine.h; sourceTree = "<group>"; };
-		2FF6E9212725375F00D027FD /* ICU_SHA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ICU_SHA; sourceTree = "<group>"; };
-		2FF6E9222725375F00D027FD /* utf16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf16.h; sourceTree = "<group>"; };
-		2FF6E9232725375F00D027FD /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
-		2FF6E9242725375F00D027FD /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
-		2FF6E9252725375F00D027FD /* tree_cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree_cursor.h; sourceTree = "<group>"; };
-		2FF6E9262725375F00D027FD /* language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = language.h; sourceTree = "<group>"; };
-		2FF6E9272725375F00D027FD /* lexer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lexer.c; sourceTree = "<group>"; };
-		2FF6E9282725375F00D027FD /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
-		2FF6E9292725375F00D027FD /* get_changed_ranges.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = get_changed_ranges.c; sourceTree = "<group>"; };
-		2FF6E92A2725375F00D027FD /* unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unicode.h; sourceTree = "<group>"; };
-		2FF6E92B2725375F00D027FD /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
-		2FF6E92C2725375F00D027FD /* query.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = query.c; sourceTree = "<group>"; };
-		2FF6E92D2725375F00D027FD /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
-		2FF6E92E2725375F00D027FD /* subtree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = subtree.c; sourceTree = "<group>"; };
-		2FF6E92F2725375F00D027FD /* length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = length.h; sourceTree = "<group>"; };
-		2FF6E9302725375F00D027FD /* lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lexer.h; sourceTree = "<group>"; };
-		2FF6E9312725375F00D027FD /* language.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = language.c; sourceTree = "<group>"; };
-		2FF6E9322725375F00D027FD /* reduce_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reduce_action.h; sourceTree = "<group>"; };
-		2FF6E9332725375F00D027FD /* tree_cursor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree_cursor.c; sourceTree = "<group>"; };
-		2FF6E9342725375F00D027FD /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
-		2FF6E9352725375F00D027FD /* clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clock.h; sourceTree = "<group>"; };
-		2FF6E9362725375F00D027FD /* alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alloc.h; sourceTree = "<group>"; };
-		2FF6E9372725375F00D027FD /* node.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = node.c; sourceTree = "<group>"; };
-		2FF6E9382725375F00D027FD /* get_changed_ranges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_changed_ranges.h; sourceTree = "<group>"; };
-		2FF6E9392725375F00D027FD /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
-		2FF6E93A2725375F00D027FD /* atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atomic.h; sourceTree = "<group>"; };
 		2FF6E9632725377200D027FD /* libtree_sitter_markdown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtree_sitter_markdown.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6E9702725378E00D027FD /* inline_scan_util.generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inline_scan_util.generated.h; sourceTree = "<group>"; };
 		2FF6E9712725378E00D027FD /* block_scan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = block_scan.h; sourceTree = "<group>"; };
@@ -517,6 +521,60 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2FF54F14289EE93600932677 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2FF54F15289EE93600932677 /* error_costs.h */,
+				2FF54F16289EE93600932677 /* lib.c */,
+				2FF54F17289EE93600932677 /* subtree.h */,
+				2FF54F18289EE93600932677 /* reusable_node.h */,
+				2FF54F19289EE93600932677 /* host.h */,
+				2FF54F1A289EE93600932677 /* point.h */,
+				2FF54F1B289EE93600932677 /* unicode */,
+				2FF54F25289EE93600932677 /* stack.c */,
+				2FF54F26289EE93600932677 /* tree_cursor.h */,
+				2FF54F27289EE93600932677 /* language.h */,
+				2FF54F28289EE93600932677 /* lexer.c */,
+				2FF54F29289EE93600932677 /* tree.h */,
+				2FF54F2A289EE93600932677 /* get_changed_ranges.c */,
+				2FF54F2B289EE93600932677 /* alloc.c */,
+				2FF54F2C289EE93600932677 /* unicode.h */,
+				2FF54F2D289EE93600932677 /* array.h */,
+				2FF54F2E289EE93600932677 /* query.c */,
+				2FF54F2F289EE93600932677 /* stack.h */,
+				2FF54F30289EE93600932677 /* subtree.c */,
+				2FF54F31289EE93600932677 /* length.h */,
+				2FF54F32289EE93600932677 /* lexer.h */,
+				2FF54F33289EE93600932677 /* language.c */,
+				2FF54F34289EE93600932677 /* reduce_action.h */,
+				2FF54F35289EE93600932677 /* tree_cursor.c */,
+				2FF54F36289EE93600932677 /* parser.c */,
+				2FF54F37289EE93600932677 /* clock.h */,
+				2FF54F38289EE93600932677 /* alloc.h */,
+				2FF54F39289EE93600932677 /* node.c */,
+				2FF54F3A289EE93600932677 /* get_changed_ranges.h */,
+				2FF54F3B289EE93600932677 /* tree.c */,
+				2FF54F3C289EE93600932677 /* atomic.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		2FF54F1B289EE93600932677 /* unicode */ = {
+			isa = PBXGroup;
+			children = (
+				2FF54F1C289EE93600932677 /* ptypes.h */,
+				2FF54F1D289EE93600932677 /* LICENSE */,
+				2FF54F1E289EE93600932677 /* utf.h */,
+				2FF54F1F289EE93600932677 /* urename.h */,
+				2FF54F20289EE93600932677 /* README.md */,
+				2FF54F21289EE93600932677 /* umachine.h */,
+				2FF54F22289EE93600932677 /* ICU_SHA */,
+				2FF54F23289EE93600932677 /* utf16.h */,
+				2FF54F24289EE93600932677 /* utf8.h */,
+			);
+			path = unicode;
+			sourceTree = "<group>";
+		};
 		2FF6E8FF2725372900D027FD /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,7 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF6E9102725375F00D027FD /* include */,
-				2FF6E9142725375F00D027FD /* src */,
+				2FF54F14289EE93600932677 /* src */,
 			);
 			path = tree_sitter;
 			sourceTree = "<group>";
@@ -550,58 +608,6 @@
 				2FF6E9132725375F00D027FD /* api.h */,
 			);
 			path = tree_sitter;
-			sourceTree = "<group>";
-		};
-		2FF6E9142725375F00D027FD /* src */ = {
-			isa = PBXGroup;
-			children = (
-				2FF6E9152725375F00D027FD /* error_costs.h */,
-				2FF6E9162725375F00D027FD /* lib.c */,
-				2FF6E9172725375F00D027FD /* subtree.h */,
-				2FF6E9182725375F00D027FD /* reusable_node.h */,
-				2FF6E9192725375F00D027FD /* point.h */,
-				2FF6E91A2725375F00D027FD /* unicode */,
-				2FF6E9242725375F00D027FD /* stack.c */,
-				2FF6E9252725375F00D027FD /* tree_cursor.h */,
-				2FF6E9262725375F00D027FD /* language.h */,
-				2FF6E9272725375F00D027FD /* lexer.c */,
-				2FF6E9282725375F00D027FD /* tree.h */,
-				2FF6E9292725375F00D027FD /* get_changed_ranges.c */,
-				2FF6E92A2725375F00D027FD /* unicode.h */,
-				2FF6E92B2725375F00D027FD /* array.h */,
-				2FF6E92C2725375F00D027FD /* query.c */,
-				2FF6E92D2725375F00D027FD /* stack.h */,
-				2FF6E92E2725375F00D027FD /* subtree.c */,
-				2FF6E92F2725375F00D027FD /* length.h */,
-				2FF6E9302725375F00D027FD /* lexer.h */,
-				2FF6E9312725375F00D027FD /* language.c */,
-				2FF6E9322725375F00D027FD /* reduce_action.h */,
-				2FF6E9332725375F00D027FD /* tree_cursor.c */,
-				2FF6E9342725375F00D027FD /* parser.c */,
-				2FF6E9352725375F00D027FD /* clock.h */,
-				2FF6E9362725375F00D027FD /* alloc.h */,
-				2FF6E9372725375F00D027FD /* node.c */,
-				2FF6E9382725375F00D027FD /* get_changed_ranges.h */,
-				2FF6E9392725375F00D027FD /* tree.c */,
-				2FF6E93A2725375F00D027FD /* atomic.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		2FF6E91A2725375F00D027FD /* unicode */ = {
-			isa = PBXGroup;
-			children = (
-				2FF6E91B2725375F00D027FD /* ptypes.h */,
-				2FF6E91C2725375F00D027FD /* LICENSE */,
-				2FF6E91D2725375F00D027FD /* utf.h */,
-				2FF6E91E2725375F00D027FD /* urename.h */,
-				2FF6E91F2725375F00D027FD /* README.md */,
-				2FF6E9202725375F00D027FD /* umachine.h */,
-				2FF6E9212725375F00D027FD /* ICU_SHA */,
-				2FF6E9222725375F00D027FD /* utf16.h */,
-				2FF6E9232725375F00D027FD /* utf8.h */,
-			);
-			path = unicode;
 			sourceTree = "<group>";
 		};
 		2FF6E96E2725378E00D027FD /* tree_sitter_markdown */ = {
@@ -678,31 +684,32 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF54F5C289EE93600932677 /* alloc.h in Headers */,
+				2FF54F50289EE93600932677 /* unicode.h in Headers */,
+				2FF54F4A289EE93600932677 /* tree_cursor.h in Headers */,
+				2FF54F4B289EE93600932677 /* language.h in Headers */,
+				2FF54F48289EE93600932677 /* utf8.h in Headers */,
+				2FF54F41289EE93600932677 /* host.h in Headers */,
+				2FF54F3D289EE93600932677 /* error_costs.h in Headers */,
+				2FF54F51289EE93600932677 /* array.h in Headers */,
+				2FF54F3F289EE93600932677 /* subtree.h in Headers */,
+				2FF54F58289EE93600932677 /* reduce_action.h in Headers */,
+				2FF54F55289EE93600932677 /* length.h in Headers */,
+				2FF54F5E289EE93600932677 /* get_changed_ranges.h in Headers */,
+				2FF54F56289EE93600932677 /* lexer.h in Headers */,
+				2FF54F53289EE93600932677 /* stack.h in Headers */,
+				2FF54F47289EE93600932677 /* utf16.h in Headers */,
+				2FF54F44289EE93600932677 /* utf.h in Headers */,
+				2FF54F43289EE93600932677 /* ptypes.h in Headers */,
 				2FF6E93B2725375F00D027FD /* parser.h in Headers */,
+				2FF54F42289EE93600932677 /* point.h in Headers */,
+				2FF54F46289EE93600932677 /* umachine.h in Headers */,
+				2FF54F4D289EE93600932677 /* tree.h in Headers */,
+				2FF54F60289EE93600932677 /* atomic.h in Headers */,
+				2FF54F40289EE93600932677 /* reusable_node.h in Headers */,
+				2FF54F45289EE93600932677 /* urename.h in Headers */,
+				2FF54F5B289EE93600932677 /* clock.h in Headers */,
 				2FF6E93C2725375F00D027FD /* api.h in Headers */,
-				2FF6E9462725375F00D027FD /* utf16.h in Headers */,
-				2FF6E9542725375F00D027FD /* lexer.h in Headers */,
-				2FF6E93D2725375F00D027FD /* error_costs.h in Headers */,
-				2FF6E9492725375F00D027FD /* tree_cursor.h in Headers */,
-				2FF6E94F2725375F00D027FD /* array.h in Headers */,
-				2FF6E9592725375F00D027FD /* clock.h in Headers */,
-				2FF6E9422725375F00D027FD /* ptypes.h in Headers */,
-				2FF6E9432725375F00D027FD /* utf.h in Headers */,
-				2FF6E93F2725375F00D027FD /* subtree.h in Headers */,
-				2FF6E9532725375F00D027FD /* length.h in Headers */,
-				2FF6E95C2725375F00D027FD /* get_changed_ranges.h in Headers */,
-				2FF6E94E2725375F00D027FD /* unicode.h in Headers */,
-				2FF6E9512725375F00D027FD /* stack.h in Headers */,
-				2FF6E95A2725375F00D027FD /* alloc.h in Headers */,
-				2FF6E9412725375F00D027FD /* point.h in Headers */,
-				2FF6E94A2725375F00D027FD /* language.h in Headers */,
-				2FF6E9562725375F00D027FD /* reduce_action.h in Headers */,
-				2FF6E9472725375F00D027FD /* utf8.h in Headers */,
-				2FF6E94C2725375F00D027FD /* tree.h in Headers */,
-				2FF6E9442725375F00D027FD /* urename.h in Headers */,
-				2FF6E9402725375F00D027FD /* reusable_node.h in Headers */,
-				2FF6E95E2725375F00D027FD /* atomic.h in Headers */,
-				2FF6E9452725375F00D027FD /* umachine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,17 +1131,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FF6E9552725375F00D027FD /* language.c in Sources */,
-				2FF6E94B2725375F00D027FD /* lexer.c in Sources */,
-				2FF6E9502725375F00D027FD /* query.c in Sources */,
-				2FF6E9572725375F00D027FD /* tree_cursor.c in Sources */,
-				2FF6E9582725375F00D027FD /* parser.c in Sources */,
-				2FF6E95B2725375F00D027FD /* node.c in Sources */,
-				2FF6E94D2725375F00D027FD /* get_changed_ranges.c in Sources */,
-				2FF6E9482725375F00D027FD /* stack.c in Sources */,
-				2FF6E9522725375F00D027FD /* subtree.c in Sources */,
-				2FF6E95D2725375F00D027FD /* tree.c in Sources */,
-				2FF6E93E2725375F00D027FD /* lib.c in Sources */,
+				2FF54F5D289EE93600932677 /* node.c in Sources */,
+				2FF54F52289EE93600932677 /* query.c in Sources */,
+				2FF54F59289EE93600932677 /* tree_cursor.c in Sources */,
+				2FF54F5F289EE93600932677 /* tree.c in Sources */,
+				2FF54F4C289EE93600932677 /* lexer.c in Sources */,
+				2FF54F4E289EE93600932677 /* get_changed_ranges.c in Sources */,
+				2FF54F54289EE93600932677 /* subtree.c in Sources */,
+				2FF54F49289EE93600932677 /* stack.c in Sources */,
+				2FF54F4F289EE93600932677 /* alloc.c in Sources */,
+				2FF54F3E289EE93600932677 /* lib.c in Sources */,
+				2FF54F5A289EE93600932677 /* parser.c in Sources */,
+				2FF54F57289EE93600932677 /* language.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
