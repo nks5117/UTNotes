@@ -43,7 +43,6 @@
 		2FB07E432648F5AE0086BD8D /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */; };
 		2FB07E452648F6250086BD8D /* opensource in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E442648F6250086BD8D /* opensource */; };
 		2FC6DDEF268EFCBB0009D6DC /* katex in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDEE268EFCBB0009D6DC /* katex */; };
-		2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
 		2FF54F3D289EE93600932677 /* error_costs.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F15289EE93600932677 /* error_costs.h */; };
 		2FF54F3E289EE93600932677 /* lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F16289EE93600932677 /* lib.c */; };
@@ -81,6 +80,8 @@
 		2FF54F5E289EE93600932677 /* get_changed_ranges.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F3A289EE93600932677 /* get_changed_ranges.h */; };
 		2FF54F5F289EE93600932677 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FF54F3B289EE93600932677 /* tree.c */; };
 		2FF54F60289EE93600932677 /* atomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF54F3C289EE93600932677 /* atomic.h */; };
+		2FF54F62289EEB2000932677 /* template_share.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FF54F61289EEB2000932677 /* template_share.html */; };
+		2FF54F68289EEC7E00932677 /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FF54F67289EEC7E00932677 /* github-markdown.min.css */; };
 		2FF6E93B2725375F00D027FD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
 		2FF6E93C2725375F00D027FD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; };
 		2FF6E9912725378E00D027FD /* inline_scan_util.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9702725378E00D027FD /* inline_scan_util.generated.h */; };
@@ -202,7 +203,6 @@
 		2FB07E422648F5AE0086BD8D /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		2FB07E442648F6250086BD8D /* opensource */ = {isa = PBXFileReference; lastKnownFileType = text; path = opensource; sourceTree = "<group>"; };
 		2FC6DDEE268EFCBB0009D6DC /* katex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = katex; sourceTree = "<group>"; };
-		2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.min.css"; sourceTree = "<group>"; };
 		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
 		2FF54EC3289EE10F00932677 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2FF54F15289EE93600932677 /* error_costs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error_costs.h; sourceTree = "<group>"; };
@@ -244,6 +244,8 @@
 		2FF54F3A289EE93600932677 /* get_changed_ranges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_changed_ranges.h; sourceTree = "<group>"; };
 		2FF54F3B289EE93600932677 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
 		2FF54F3C289EE93600932677 /* atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atomic.h; sourceTree = "<group>"; };
+		2FF54F61289EEB2000932677 /* template_share.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template_share.html; sourceTree = "<group>"; };
+		2FF54F67289EEC7E00932677 /* github-markdown.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.min.css"; sourceTree = "<group>"; };
 		2FF6E9042725375000D027FD /* libtree_sitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtree_sitter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6E9122725375F00D027FD /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		2FF6E9132725375F00D027FD /* api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = api.h; sourceTree = "<group>"; };
@@ -514,7 +516,8 @@
 				2FB07E3E2646C8C00086BD8D /* untitled.md */,
 				2F592BBA262F031A006C464D /* Assets.xcassets */,
 				2F592BBC262F031A006C464D /* LaunchScreen.storyboard */,
-				2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */,
+				2FF54F67289EEC7E00932677 /* github-markdown.min.css */,
+				2FF54F61289EEB2000932677 /* template_share.html */,
 				2F85CA4D264F816C00B3EB87 /* template.html */,
 				2FFC5F112663B69800F11BAA /* Localizable.strings */,
 			);
@@ -896,11 +899,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F7565264E5E15001FDA97 /* markdown-it in Resources */,
-				2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */,
 				2F592BBE262F031A006C464D /* LaunchScreen.storyboard in Resources */,
+				2FF54F62289EEB2000932677 /* template_share.html in Resources */,
 				2FB07E452648F6250086BD8D /* opensource in Resources */,
 				2F592BBB262F031A006C464D /* Assets.xcassets in Resources */,
 				2F85CA4E264F816C00B3EB87 /* template.html in Resources */,
+				2FF54F68289EEC7E00932677 /* github-markdown.min.css in Resources */,
 				2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */,
 				2FC6DDEF268EFCBB0009D6DC /* katex in Resources */,
 				2F939E472652A6C1003625D7 /* markdown-it-footnote.js in Resources */,
@@ -1355,6 +1359,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fcxx-modules",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1396,6 +1404,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fcxx-modules",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

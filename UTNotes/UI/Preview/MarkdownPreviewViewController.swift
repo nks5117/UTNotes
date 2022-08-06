@@ -11,7 +11,6 @@ import JavaScriptCore
 import KatexUtils
 import SnapKit
 
-
 class MarkdownPreviewViewController: UIViewController {
     var text: String {
         didSet {
@@ -19,7 +18,14 @@ class MarkdownPreviewViewController: UIViewController {
         }
     }
     
-    private lazy var webView : WKWebView = WKWebView()
+    private lazy var webView : WKWebView = {
+        let webView = WKWebView()
+        webView.navigationDelegate = self
+        webView.backgroundColor = UIColor.clear
+        webView.scrollView.backgroundColor = UIColor.clear
+        webView.scrollView.isHidden = true
+        return webView
+    }()
     
     private lazy var md: MarkdownIt = {
         guard let jsContext = JSContext(virtualMachine: JSVirtualMachine()) else {
@@ -63,6 +69,7 @@ class MarkdownPreviewViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        view.backgroundColor = UIColor.systemBackground
         view.addSubview(webView)
         webView.snp.makeConstraints { make in
             make.edges.equalTo(view)
@@ -72,12 +79,20 @@ class MarkdownPreviewViewController: UIViewController {
     }
 }
 
+extension MarkdownPreviewViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(50)) {
+            webView.scrollView.isHidden = false
+        }
+    }
+}
+
 extension MarkdownPreviewViewController {
     @objc
     func share() {
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(documentTitle).html")
         do {
-            try html.data(using: .utf8)?.write(to: fileURL)
+            try getHtml(forShare: true).data(using: .utf8)?.write(to: fileURL)
         } catch {
             return
         }
@@ -91,16 +106,20 @@ extension MarkdownPreviewViewController {
 
 extension MarkdownPreviewViewController {
     func updateHtml() {
+        html = getHtml(forShare: false)
+    }
+
+    func getHtml(forShare: Bool) -> String {
         let result = md.render(src: text)
         guard
-            let url = Bundle.main.url(forResource: "template", withExtension: "html"),
+            let url = Bundle.main.url(forResource: forShare ? "template_share" : "template", withExtension: "html"),
             let baseHtml = try? String(contentsOf: url, encoding: .utf8)
         else {
-            return
+            return ""
         }
-        html = baseHtml
-                .replacingOccurrences(of: "$TITLE$", with: documentTitle)
-                .replacingOccurrences(of: "$MARKDOWN$", with: result)
+        return baseHtml
+            .replacingOccurrences(of: "$TITLE$", with: documentTitle)
+            .replacingOccurrences(of: "$MARKDOWN$", with: result)
     }
 }
 
