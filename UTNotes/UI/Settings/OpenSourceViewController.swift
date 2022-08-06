@@ -10,7 +10,12 @@ import SnapKit
 
 class OpenSourceViewController: UIViewController, UIScrollViewDelegate {
     lazy var textView: UITextView = {
-        let textView = UITextView(frame: .zero)
+        var textView: UITextView
+        if #available(iOS 16.0, *) {
+            textView = UITextView(usingTextLayoutManager: false)
+        } else {
+            textView = UITextView()
+        }
         textView.font = .monospacedSystemFont(ofSize: 17, weight: .regular)
         if let url = Bundle.main.url(forResource: "opensource", withExtension: "") {
             textView.text = try? String(contentsOf: url)
@@ -41,6 +46,8 @@ class OpenSourceViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewDidLayoutSubviews() {
+        textView.sizeToFit()
+        scrollView.contentSize = textView.frame.size
         scrollView.zoomScale = scrollView.bounds.width / scrollView.contentSize.width
         scrollView.minimumZoomScale = scrollView.zoomScale
     }

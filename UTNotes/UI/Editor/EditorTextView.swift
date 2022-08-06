@@ -24,11 +24,21 @@ class EditorTextView: UITextView {
 
         let storage = UTTextStorage()
 
-        let layoutManager = NSLayoutManager()
-        storage.addLayoutManager(layoutManager)
-        let container = NSTextContainer()
-        container.replaceLayoutManager(layoutManager)
-        super.init(frame: .zero, textContainer: container)
+        if #available(iOS 16, *) {
+            let textLayoutManager = NSTextLayoutManager()
+            let container = NSTextContainer()
+            textLayoutManager.textContainer = container
+            let textContentStorage = NSTextContentStorage()
+            textContentStorage.addTextLayoutManager(textLayoutManager)
+            textContentStorage.textStorage = storage
+            super.init(frame: frame, textContainer: container)
+        } else {
+            let layoutManager = NSLayoutManager()
+            let container = NSTextContainer()
+            layoutManager.addTextContainer(container)
+            storage.addLayoutManager(layoutManager)
+            super.init(frame: frame, textContainer: container)
+        }
     }
     
     convenience init() {
