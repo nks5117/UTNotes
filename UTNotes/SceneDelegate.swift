@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowSecne = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowSecne)
         window?.backgroundColor = .systemBackground
-        let viewController = DocumentBrowserViewController(forOpeningFilesWithContentTypes: nil)
+        let viewController = DocumentBrowserViewController(forOpening: nil)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         if let url = connectionOptions.urlContexts.first?.url {

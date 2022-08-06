@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  UTNotes
+//
+//  Created by 倪可塑 on 2022/8/7.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifndef DEBUG
+  #define NSLog(...);
+#endif
+
+#endif /* PrefixHeader_pch */

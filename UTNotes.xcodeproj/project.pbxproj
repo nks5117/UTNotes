@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,7 +44,6 @@
 		2FB07E452648F6250086BD8D /* opensource in Resources */ = {isa = PBXBuildFile; fileRef = 2FB07E442648F6250086BD8D /* opensource */; };
 		2FC6DDEF268EFCBB0009D6DC /* katex in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDEE268EFCBB0009D6DC /* katex */; };
 		2FC6DDF1268EFD9F0009D6DC /* github-markdown.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */; };
-		2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */; };
 		2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */; };
 		2FF6E93B2725375F00D027FD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9122725375F00D027FD /* parser.h */; };
 		2FF6E93C2725375F00D027FD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF6E9132725375F00D027FD /* api.h */; };
@@ -117,7 +116,6 @@
 		2FF6E9B1272537B300D027FD /* libtree_sitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF6E9042725375000D027FD /* libtree_sitter.a */; };
 		2FF6E9B8272537C100D027FD /* libtree_sitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF6E9042725375000D027FD /* libtree_sitter.a */; };
 		2FF6E9BC2725391600D027FD /* UTTextStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9BB2725391600D027FD /* UTTextStorage.mm */; };
-		2FF6E9BF27253E7A00D027FD /* NSString+TSInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6E9BE27253E7A00D027FD /* NSString+TSInput.mm */; };
 		2FFC5F0F2663B69800F11BAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC5F112663B69800F11BAA /* Localizable.strings */; };
 		34450F57E44E5D0ACC56DD2A /* Pods_UTNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55F006FAAF71166C2F5C5DD /* Pods_UTNotes.framework */; };
 		CD0E3BA01A5996E0F459BB81 /* Pods_UTNotesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD52AA99DF25713DAC8280A /* Pods_UTNotesTests.framework */; };
@@ -203,8 +201,8 @@
 		2FB07E442648F6250086BD8D /* opensource */ = {isa = PBXFileReference; lastKnownFileType = text; path = opensource; sourceTree = "<group>"; };
 		2FC6DDEE268EFCBB0009D6DC /* katex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = katex; sourceTree = "<group>"; };
 		2FC6DDF0268EFD9F0009D6DC /* github-markdown.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.min.css"; sourceTree = "<group>"; };
-		2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTextStorage.swift; sourceTree = "<group>"; };
 		2FCEA3FF264CDDD000580F5A /* FormulaEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditorController.swift; sourceTree = "<group>"; };
+		2FF54EC3289EE10F00932677 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2FF6E9042725375000D027FD /* libtree_sitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtree_sitter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6E9122725375F00D027FD /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		2FF6E9132725375F00D027FD /* api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = api.h; sourceTree = "<group>"; };
@@ -282,8 +280,6 @@
 		2FF6E9B92725391600D027FD /* UTNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		2FF6E9BA2725391600D027FD /* UTTextStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UTTextStorage.h; sourceTree = "<group>"; };
 		2FF6E9BB2725391600D027FD /* UTTextStorage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UTTextStorage.mm; sourceTree = "<group>"; };
-		2FF6E9BD27253E7A00D027FD /* NSString+TSInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TSInput.h"; sourceTree = "<group>"; };
-		2FF6E9BE27253E7A00D027FD /* NSString+TSInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+TSInput.mm"; sourceTree = "<group>"; };
 		2FFC5F102663B69800F11BAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2FFC5F122663B6A600F11BAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3037EBBEE9CBE7B95FAAD217 /* Pods-UTNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTNotesTests.release.xcconfig"; path = "Target Support Files/Pods-UTNotesTests/Pods-UTNotesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -388,6 +384,7 @@
 				2F939E3D26500400003625D7 /* Utils */,
 				2F592BBF262F031A006C464D /* Info.plist */,
 				2FD3C49E264C000600667198 /* Resources */,
+				2FF54EC3289EE10F00932677 /* PrefixHeader.pch */,
 			);
 			path = UTNotes;
 			sourceTree = "<group>";
@@ -487,11 +484,8 @@
 				2FCEA3FE264CDDA700580F5A /* Formula */,
 				2FB07E3C2646C3F40086BD8D /* MarkdownEditorViewController.swift */,
 				2F6F755F264D610B001FDA97 /* EditorTextView.swift */,
-				2FCEA3FC264CB47900580F5A /* EditorTextStorage.swift */,
 				2FF6E9BA2725391600D027FD /* UTTextStorage.h */,
 				2FF6E9BB2725391600D027FD /* UTTextStorage.mm */,
-				2FF6E9BD27253E7A00D027FD /* NSString+TSInput.h */,
-				2FF6E9BE27253E7A00D027FD /* NSString+TSInput.mm */,
 				2FB07E382646C21D0086BD8D /* MarkdownDocument.swift */,
 			);
 			path = Editor;
@@ -926,6 +920,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		2F939E39264FB02F003625D7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1092,7 +1087,6 @@
 				2F6F7563264E5D06001FDA97 /* MarkdownIt.swift in Sources */,
 				2F939E4A2652A6FB003625D7 /* Footnote.swift in Sources */,
 				2F939E4C2652A92E003625D7 /* MarkdownItPlugin.swift in Sources */,
-				2FCEA3FD264CB47900580F5A /* EditorTextStorage.swift in Sources */,
 				2F939E43265160ED003625D7 /* SettingsManager.swift in Sources */,
 				2FCEA400264CDDD000580F5A /* FormulaEditorController.swift in Sources */,
 				2F6F755E264D3A6B001FDA97 /* FormulaPreviewController.swift in Sources */,
@@ -1107,7 +1101,6 @@
 				2F6F7567264E9836001FDA97 /* ParserInline.swift in Sources */,
 				2F6F756B264EA2FD001FDA97 /* Renderer.swift in Sources */,
 				2FB07E412648BC890086BD8D /* SettingsViewController.swift in Sources */,
-				2FF6E9BF27253E7A00D027FD /* NSString+TSInput.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1348,6 +1341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/UTNotes/PrefixHeader.pch";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1389,6 +1383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/UTNotes/PrefixHeader.pch";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

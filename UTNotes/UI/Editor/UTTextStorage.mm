@@ -36,7 +36,7 @@ static NSDictionary<NSString *, NSString *> *patterns = @{
 
 NodeType nodeTypeForCaptureName(const char *name) {
     NSString *nsName = [NSString stringWithFormat:@"%s", name];
-    NSDictionary<NSString *, NSNumber *> *dic = @{
+    static NSDictionary<NSString *, NSNumber *> *dic = @{
         @"h1": @(NodeTypeH1),
         @"h2": @(NodeTypeH2),
         @"h3": @(NodeTypeH3),
@@ -55,11 +55,29 @@ NodeType nodeTypeForCaptureName(const char *name) {
     return (NodeType)[dic objectForKey:nsName].unsignedIntValue;
 }
 
+static char *querySource;
+
+void getQuerySource() {
+    NSMutableString *queryString = @"".mutableCopy;
+    for (NSString *name in patterns) {
+        NSString *query = [patterns objectForKey:name];
+        [queryString appendFormat:@"%@ @%@ ", query, name];
+    }
+
+    querySource = (char *)malloc(sizeof(char) * strlen([queryString cStringUsingEncoding:NSUTF8StringEncoding]));
+    strcpy(querySource, [queryString cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
 const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, uint32_t *bytes_read) {
     NSData *data = (__bridge NSData *)(payload);
 
+    if (byte_offset >= data.length) {
+        *bytes_read = 0;
+        return NULL;
+    }
+
     uint32_t end_byte = byte_offset + 32;
-    if (end_byte > 0) {
+    if (end_byte > data.length) {
         end_byte = (uint32_t)data.length;
     }
     *bytes_read = end_byte - byte_offset;
@@ -77,6 +95,10 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 @end
 
 @implementation UTTextStorage
+
++ (void)initialize {
+    getQuerySource();
+}
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -128,9 +150,9 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
     } else {
         NSTimeInterval startTime = NSDate.timeIntervalSinceReferenceDate;
 
-        uint32_t start_byte = (uint32_t)self.editedRange.location * 2;
-        uint32_t new_end_byte = start_byte + (uint32_t)self.editedRange.length * 2;
-        uint32_t old_end_byte = (uint32_t)new_end_byte - (uint32_t)self.changeInLength * 2;
+        uint32_t start_byte = (uint32_t)self.editedRange.location * 2 + 2;
+        uint32_t new_end_byte = start_byte + (uint32_t)self.editedRange.length * 2 + 2;
+        uint32_t old_end_byte = new_end_byte - (uint32_t)self.changeInLength * 2 + 2;
 
         TSInputEdit edit;
         edit.start_byte = start_byte;
@@ -159,10 +181,7 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
         free(editedRanges);
     }
 
-#if DEBUG
-//    NSLog(@"%s", ts_node_string(ts_tree_root_node(m_tree)));
-//    ts_tree_print_dot_graph(m_tree, stdout);
-#endif
+    NSLog(@"%s", ts_node_string(ts_tree_root_node(m_tree)));
     NSLog(@"----end process editing----");
 
     [super processEditing];
@@ -175,24 +194,20 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 
     TSNode currentNode = ts_node_descendant_for_byte_range(ts_tree_root_node(m_tree), (uint32_t)startByte, (uint32_t)endByte);
 
-    uint32_t nodeStartByte = ts_node_start_byte(currentNode) - 2;
-    uint32_t nodeEndByte = ts_node_end_byte(currentNode) - 2;
+    uint32_t nodeStartByte = ts_node_start_byte(currentNode);
+    uint32_t nodeEndByte = ts_node_end_byte(currentNode);
     NSRange range = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
 
     if (range.length == 0) {
         return;
     }
 
+    NSLog(@"update attributes for startByte %lu, endByte %lu", startByte, endByte);
+
     NSMutableDictionary<NSAttributedStringKey, id> *attributes = [Theme.defaultTheme attributesFor:NodeTypeText].mutableCopy;
     [attributes setValue:Theme.defaultTheme.defaultFount forKey:NSFontAttributeName];
-    [self setAttributes:attributes range:range];
+    [self.imp setAttributes:attributes range:range];
 
-    NSMutableString *queryString = @"".mutableCopy;
-    for (NSString *name in patterns) {
-        NSString *query = [patterns objectForKey:name];
-        [queryString appendFormat:@"%@ @%@ ", query, name];
-    }
-    const char *querySource = [queryString cStringUsingEncoding:NSUTF8StringEncoding];
     uint32_t error_offset;
     TSQueryError error_type;
     TSQuery *query = ts_query_new(ts_parser_language(m_parser), querySource, (uint32_t)strlen(querySource), &error_offset, &error_type);
@@ -216,8 +231,8 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 
         for (int i = 0; i < match.capture_count; i++) {
             TSNode node = match.captures[i].node;
-            uint32_t nodeStartByte = ts_node_start_byte(node) - 2;
-            uint32_t nodeEndByte = ts_node_end_byte(node) - 2;
+            uint32_t nodeStartByte = ts_node_start_byte(node);
+            uint32_t nodeEndByte = ts_node_end_byte(node);
             NSRange range = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
 
             CGFloat fontSize = fontDescriptor.pointSize;
@@ -233,8 +248,8 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
             [mutableAttributes setValue:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
 
             if (nodeType == NodeTypeInlineCode) {
-                if ([[self.string substringWithRange:NSMakeRange(range.location, 1)] isEqualToString:@"$"]) {
-                    if ([[self.string substringWithRange:NSMakeRange(range.location, 2)] isEqualToString:@"$$"]) {
+                if ([self.string hasPrefix:@"$"]) {
+                    if ([self.string hasPrefix:@"$$"]) {
                         [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineBlockFormula"];
                     } else {
                         [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineFormula"];
@@ -242,7 +257,7 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
                 }
             }
 
-            [self addAttributes:mutableAttributes range:range];
+            [self.imp addAttributes:mutableAttributes range:range];
         }
     }
 
@@ -251,6 +266,8 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 }
 
 - (NSRange)nsRangeForStartByte:(NSUInteger)startByte endByte:(NSUInteger)endByte {
+    startByte -= 2;
+    endByte -= 2;
     NSUInteger location = startByte / 2;
     NSUInteger length = (endByte - startByte) / 2;
 
