@@ -312,6 +312,7 @@ extension MarkdownEditorViewController {
         if textView.isFirstResponder {
             showPopoverIfNeeded()
             updateLineIndicator()
+            updateInputMode()
         }
     }
     
@@ -381,6 +382,30 @@ extension MarkdownEditorViewController {
         } else if let presentedViewController = presentedViewController {
             presentedViewController.dismiss(animated: true)
         }
+    }
+    
+    func updateInputMode() {
+        let location = textView.selectedRange.location
+        var range = NSRange()
+        if
+            location < (textView.text as NSString).length,
+            textView.textStorage.attribute(.init("CodeNode"), at: location, effectiveRange: &range) as? Bool ?? false
+        {
+            textView.autocorrectionType = .no
+            textView.autocapitalizationType = .none
+            textView.spellCheckingType = .no
+            textView.smartQuotesType = .no
+            textView.smartDashesType = .no
+            textView.smartInsertDeleteType = .no
+        } else {
+            textView.autocorrectionType = .default
+            textView.autocapitalizationType = .sentences
+            textView.spellCheckingType = .default
+            textView.smartQuotesType = .default
+            textView.smartDashesType = .default
+            textView.smartInsertDeleteType = .default
+        }
+        textView.reloadInputViews()
     }
 }
 
