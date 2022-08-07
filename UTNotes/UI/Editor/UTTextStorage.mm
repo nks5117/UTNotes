@@ -151,8 +151,8 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
         NSTimeInterval startTime = NSDate.timeIntervalSinceReferenceDate;
 
         uint32_t start_byte = (uint32_t)self.editedRange.location * 2 + 2;
-        uint32_t new_end_byte = start_byte + (uint32_t)self.editedRange.length * 2 + 2;
-        uint32_t old_end_byte = new_end_byte - (uint32_t)self.changeInLength * 2 + 2;
+        uint32_t new_end_byte = start_byte + (uint32_t)self.editedRange.length * 2;
+        uint32_t old_end_byte = new_end_byte - (uint32_t)self.changeInLength * 2;
 
         TSInputEdit edit;
         edit.start_byte = start_byte;
@@ -196,9 +196,9 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 
     uint32_t nodeStartByte = ts_node_start_byte(currentNode);
     uint32_t nodeEndByte = ts_node_end_byte(currentNode);
-    NSRange range = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
+    NSRange nodeRange = [self nsRangeForStartByte:nodeStartByte endByte:nodeEndByte];
 
-    if (range.length == 0) {
+    if (nodeRange.length == 0) {
         return;
     }
 
@@ -206,7 +206,7 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
 
     NSMutableDictionary<NSAttributedStringKey, id> *attributes = [Theme.defaultTheme attributesFor:NodeTypeText].mutableCopy;
     [attributes setValue:Theme.defaultTheme.defaultFount forKey:NSFontAttributeName];
-    [self.imp setAttributes:attributes range:range];
+    [self setAttributes:attributes range:nodeRange];
 
     uint32_t error_offset;
     TSQueryError error_type;
@@ -248,16 +248,21 @@ const char *readString16(void *payload, uint32_t byte_offset, TSPoint position, 
             [mutableAttributes setValue:[UIFont fontWithDescriptor:fontDescriptor size:fontSize] forKey:NSFontAttributeName];
 
             if (nodeType == NodeTypeInlineCode) {
-                if ([self.string hasPrefix:@"$"]) {
-                    if ([self.string hasPrefix:@"$$"]) {
-                        [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineBlockFormula"];
+                NSString *subString = [self.string substringWithRange:range];
+                if ([subString hasPrefix:@"$"]) {
+                    if ([subString hasPrefix:@"$$"]) {
+                        [mutableAttributes setValue:subString forKey:@"InlineBlockFormula"];
                     } else {
-                        [mutableAttributes setValue:[self.string substringWithRange:range] forKey:@"InlineFormula"];
+                        [mutableAttributes setValue:subString forKey:@"InlineFormula"];
                     }
                 }
             }
 
-            [self.imp addAttributes:mutableAttributes range:range];
+            if (nodeType == NodeTypeInlineCode || nodeType == NodeTypeBlockCode || nodeType == NodeTypeLink) {
+                [mutableAttributes setValue:@(1) forKey:@"CodeNode"];
+            }
+
+            [self addAttributes:mutableAttributes range:range];
         }
     }
 
