@@ -1352,7 +1352,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CFXYR25646;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UTNotes/PrefixHeader.pch";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1398,7 +1398,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CFXYR25646;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/UTNotes/PrefixHeader.pch";
 				INFOPLIST_FILE = UTNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
