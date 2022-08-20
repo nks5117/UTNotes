@@ -21,6 +21,7 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         textView.layer.insertSublayer(lineIndicatorLayer, at: 0)
         textView.backgroundColor = Theme.default.backgroundColor
+        textView.accessibilityIdentifier = "MainEditor"
         return textView
     }()
     
@@ -41,8 +42,14 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
     ]
     
     lazy var editingToolBarItems: [UIBarButtonItem] = {
+        let previewBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview))
+        previewBarButtonItem.accessibilityIdentifier = "PreviewBarButton"
+
+        let formulaBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sum"), style: .plain, target: self, action: #selector(editFormula))
+        formulaBarButtonItem.accessibilityIdentifier = "FormulaBarButton"
+
         return [
-            UIBarButtonItem(image: UIImage(systemName: "eye"), style: .plain, target: self, action: #selector(showPreview)),
+            previewBarButtonItem,
             UIBarButtonItem(systemItem: .flexibleSpace),
             UIBarButtonItem(image: UIImage(systemName: "bold"), style: .plain, target: self, action: #selector(bold)),
             UIBarButtonItem(systemItem: .flexibleSpace),
@@ -50,7 +57,7 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
             UIBarButtonItem(systemItem: .flexibleSpace),
             UIBarButtonItem(image: UIImage(systemName: "strikethrough"), style: .plain, target: self, action: #selector(strikethrough)),
             UIBarButtonItem(systemItem: .flexibleSpace),
-            UIBarButtonItem(image: UIImage(systemName: "sum"), style: .plain, target: self, action: #selector(editFormula)),
+            formulaBarButtonItem,
         ]
     }()
     
@@ -70,6 +77,7 @@ class MarkdownEditorViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         title = document?.fileURL.lastPathComponent
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeFile))
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "MarkdownEditorViewController_DoneButton"
         
         view.addSubview(toolbar)
         view.addSubview(textView)

@@ -25,6 +25,24 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         view.tintColor = UIColor(named: "AccentColor")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+#if DEBUG
+        let args = ProcessInfo.processInfo.arguments
+        if let index = args.firstIndex(of: "-OPEN_TEST_FILE") {
+            let fileName = args[args.index(after: index)]
+            var url = FileManager.default.temporaryDirectory
+            url.appendPathComponent("\(fileName).md")
+            if !FileManager.default.fileExists(atPath: url.path) {
+                FileManager.default.createFile(atPath: url.path, contents: nil)
+            }
+            self.presentDocument(at: url)
+        }
+        if args.contains("FORCE_USEING_DARKMODE") {
+            self.view.window?.overrideUserInterfaceStyle = .dark
+        }
+#endif
+    }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     

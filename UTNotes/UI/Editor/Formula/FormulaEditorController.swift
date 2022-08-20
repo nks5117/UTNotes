@@ -24,6 +24,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
         textView.smartDashesType = .no
         textView.smartInsertDeleteType = .no
         textView.layer.cornerRadius = 5
+        textView.accessibilityIdentifier = "FormulaEditor"
         return textView
     }()
     
@@ -57,6 +58,7 @@ class FormulaEditorController : UIViewController, UITextViewDelegate {
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         button.addTarget(self, action: #selector(done), for: .touchUpInside)
         button.sizeToFit()
+        button.accessibilityIdentifier = "FormulaEditorController_DoneButton"
         return button
     }()
     
